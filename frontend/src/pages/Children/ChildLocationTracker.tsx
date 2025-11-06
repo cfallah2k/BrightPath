@@ -77,7 +77,7 @@ export default function ChildLocationTracker() {
         timestamp: new Date(Date.now() - 1000 * 60 * 60 * 24).toISOString(),
         lat: 5.6037,
         lng: -0.1870,
-        address: 'Accra Central, Accra Metropolitan, Greater Accra',
+        address: 'Monrovia, Montserrado County, Liberia',
         recordedBy: 'Field Worker 001',
         purpose: 'Home Visit'
       },
@@ -86,7 +86,7 @@ export default function ChildLocationTracker() {
         timestamp: new Date(Date.now() - 1000 * 60 * 60 * 24 * 7).toISOString(),
         lat: 5.6100,
         lng: -0.1900,
-        address: 'Accra Central, Accra Metropolitan, Greater Accra',
+        address: 'Monrovia, Montserrado County, Liberia',
         recordedBy: 'Field Worker 001',
         purpose: 'Initial Registration'
       }

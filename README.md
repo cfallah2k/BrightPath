@@ -1,6 +1,6 @@
 # BrightPath - Out of School Children Tracking Solution
 
-A community-driven platform to track enrollment, retention, and learning outcomes for out-of-school children in Ghana.
+A community-driven platform to track enrollment, retention, and learning outcomes for out-of-school children in Liberia.
 
 ## Project Structure
 

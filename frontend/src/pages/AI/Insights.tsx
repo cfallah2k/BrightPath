@@ -60,7 +60,7 @@ export default function AIInsights() {
           id: 'insight-1',
           type: 'risk',
           title: 'High Dropout Risk Detected',
-          description: 'AI analysis shows 3 children in Greater Accra region have 85% probability of dropping out within the next 30 days based on attendance patterns and family indicators.',
+          description: 'AI analysis shows 3 children in Montserrado county have 85% probability of dropping out within the next 30 days based on attendance patterns and family indicators.',
           severity: 'high',
           confidence: 87,
           actionItems: [
@@ -75,7 +75,7 @@ export default function AIInsights() {
           id: 'insight-2',
           type: 'opportunity',
           title: 'Enrollment Opportunity Identified',
-          description: '5 children in Ashanti region show readiness indicators for enrollment. Family economic conditions have improved, and children express interest in returning to school.',
+          description: '5 children in Nimba county show readiness indicators for enrollment. Family economic conditions have improved, and children express interest in returning to school.',
           severity: 'medium',
           confidence: 72,
           actionItems: [
@@ -90,7 +90,7 @@ export default function AIInsights() {
           id: 'insight-3',
           type: 'trend',
           title: 'Positive Attendance Trend',
-          description: 'Attendance rates have improved by 15% in the Northern region over the past month. AI attributes this to the recent intervention programs.',
+          description: 'Attendance rates have improved by 15% in Bong county over the past month. AI attributes this to the recent intervention programs.',
           severity: 'low',
           confidence: 91,
           actionItems: [

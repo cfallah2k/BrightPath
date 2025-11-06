@@ -62,7 +62,7 @@ export default function ChildLocationMap({
         return
       }
 
-      const defaultLocation = initialLocation || { lat: 5.6037, lng: -0.1870 } // Accra, Ghana
+      const defaultLocation = initialLocation || { lat: 6.3153, lng: -10.8074 } // Monrovia, Liberia
       
       const mapInstance = new window.google.maps.Map(mapRef.current!, {
         center: defaultLocation,
@@ -172,7 +172,7 @@ export default function ChildLocationMap({
 
     autocompleteRef.current = new window.google.maps.places.Autocomplete(searchInput, {
       types: ['address'],
-      componentRestrictions: { country: 'gh' } // Restrict to Ghana
+      componentRestrictions: { country: 'lr' } // Restrict to Liberia
     })
 
     autocompleteRef.current.addListener('place_changed', () => {

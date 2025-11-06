@@ -5,7 +5,7 @@
 
 ## 1. SOLUTION OVERVIEW
 
-**BrightPath** is an innovative, community-driven mobile and web platform designed to accurately track enrollment, retention, and learning outcomes for out-of-school children in Ghana. The solution leverages low-cost technology and community engagement to bridge data gaps and ensure inclusive education tracking.
+**BrightPath** is an innovative, community-driven mobile and web platform designed to accurately track enrollment, retention, and learning outcomes for out-of-school children in Liberia. The solution leverages low-cost technology and community engagement to bridge data gaps and ensure inclusive education tracking.
 
 ---
 

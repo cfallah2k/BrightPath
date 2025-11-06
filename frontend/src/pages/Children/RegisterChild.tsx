@@ -158,16 +158,21 @@ export default function RegisterChild() {
                   onChange={(e) => setFormData({ ...formData, region: e.target.value })}
                   placeholder="Select region"
                 >
-                  <option value="Greater Accra">Greater Accra</option>
-                  <option value="Ashanti">Ashanti</option>
-                  <option value="Northern">Northern</option>
-                  <option value="Eastern">Eastern</option>
-                  <option value="Western">Western</option>
-                  <option value="Central">Central</option>
-                  <option value="Volta">Volta</option>
-                  <option value="Upper East">Upper East</option>
-                  <option value="Upper West">Upper West</option>
-                  <option value="Brong Ahafo">Brong Ahafo</option>
+                  <option value="Montserrado">Montserrado</option>
+                  <option value="Nimba">Nimba</option>
+                  <option value="Bong">Bong</option>
+                  <option value="Lofa">Lofa</option>
+                  <option value="Grand Bassa">Grand Bassa</option>
+                  <option value="Margibi">Margibi</option>
+                  <option value="Grand Cape Mount">Grand Cape Mount</option>
+                  <option value="Sinoe">Sinoe</option>
+                  <option value="Grand Gedeh">Grand Gedeh</option>
+                  <option value="Maryland">Maryland</option>
+                  <option value="Grand Kru">Grand Kru</option>
+                  <option value="River Cess">River Cess</option>
+                  <option value="River Gee">River Gee</option>
+                  <option value="Bomi">Bomi</option>
+                  <option value="Gbarpolu">Gbarpolu</option>
                 </Select>
               </FormControl>
 

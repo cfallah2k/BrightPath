@@ -14,12 +14,12 @@ type FieldWorker = Database['public']['Tables']['field_workers']['Row']
 export const testSchools: School[] = [
   {
     id: 'school-001',
-    name: 'Accra Primary School',
+    name: 'Monrovia Primary School',
     location: {
-      region: 'Greater Accra',
-      district: 'Accra Metropolitan',
-      community: 'Accra Central',
-      coordinates: { lat: 5.6037, lng: -0.1870 }
+      region: 'Montserrado',
+      district: 'Monrovia',
+      community: 'Central Monrovia',
+      coordinates: { lat: 6.3153, lng: -10.8074 }
     },
     school_type: 'primary',
     created_at: '2023-01-15T10:00:00Z',
@@ -27,12 +27,12 @@ export const testSchools: School[] = [
   },
   {
     id: 'school-002',
-    name: 'Kumasi Lower Secondary School',
+    name: 'Gbarnga Lower Secondary School',
     location: {
-      region: 'Ashanti',
-      district: 'Kumasi Metropolitan',
-      community: 'Kumasi',
-      coordinates: { lat: 6.6885, lng: -1.6244 }
+      region: 'Bong',
+      district: 'Gbarnga',
+      community: 'Gbarnga',
+      coordinates: { lat: 6.9956, lng: -9.4717 }
     },
     school_type: 'lower_secondary',
     created_at: '2023-01-15T10:00:00Z',
@@ -40,12 +40,12 @@ export const testSchools: School[] = [
   },
   {
     id: 'school-003',
-    name: 'Tamale Community School',
+    name: 'Ganta Community School',
     location: {
-      region: 'Northern',
-      district: 'Tamale Metropolitan',
-      community: 'Tamale',
-      coordinates: { lat: 9.4000, lng: -0.8399 }
+      region: 'Nimba',
+      district: 'Ganta',
+      community: 'Ganta',
+      coordinates: { lat: 7.2333, lng: -8.5333 }
     },
     school_type: 'mixed',
     created_at: '2023-01-15T10:00:00Z',
@@ -53,12 +53,12 @@ export const testSchools: School[] = [
   },
   {
     id: 'school-004',
-    name: 'Cape Coast Primary School',
+    name: 'Buchanan Primary School',
     location: {
-      region: 'Central',
-      district: 'Cape Coast Metropolitan',
-      community: 'Cape Coast',
-      coordinates: { lat: 5.1053, lng: -1.2466 }
+      region: 'Grand Bassa',
+      district: 'Buchanan',
+      community: 'Buchanan',
+      coordinates: { lat: 5.8808, lng: -10.0447 }
     },
     school_type: 'primary',
     created_at: '2023-01-15T10:00:00Z',
@@ -66,12 +66,12 @@ export const testSchools: School[] = [
   },
   {
     id: 'school-005',
-    name: 'Takoradi Secondary School',
+    name: 'Kakata Secondary School',
     location: {
-      region: 'Western',
-      district: 'Sekondi-Takoradi Metropolitan',
-      community: 'Takoradi',
-      coordinates: { lat: 4.9016, lng: -1.7831 }
+      region: 'Margibi',
+      district: 'Kakata',
+      community: 'Kakata',
+      coordinates: { lat: 6.5303, lng: -10.3517 }
     },
     school_type: 'upper_secondary',
     created_at: '2023-01-15T10:00:00Z',
@@ -85,11 +85,11 @@ export const testFieldWorkers: FieldWorker[] = [
     id: 'worker-001',
     user_id: 'user-001',
     name: 'John Mensah',
-    phone: '+233 24 123 4567',
+    phone: '+231 77 123 4567',
     email: 'john.mensah@brightpath.org',
     role: 'field_worker',
-    assigned_region: 'Greater Accra',
-    assigned_district: 'Accra Metropolitan',
+    assigned_region: 'Montserrado',
+    assigned_district: 'Monrovia',
     is_active: true,
     created_at: '2023-01-10T08:00:00Z',
     updated_at: '2023-01-10T08:00:00Z'
@@ -98,10 +98,10 @@ export const testFieldWorkers: FieldWorker[] = [
     id: 'worker-002',
     user_id: 'user-002',
     name: 'Ama Asante',
-    phone: '+233 24 234 5678',
+    phone: '+231 77 234 5678',
     email: 'ama.asante@brightpath.org',
     role: 'education_officer',
-    assigned_region: 'Ashanti',
+    assigned_region: 'Nimba',
     assigned_district: null,
     is_active: true,
     created_at: '2023-01-10T08:00:00Z',
@@ -111,11 +111,11 @@ export const testFieldWorkers: FieldWorker[] = [
     id: 'worker-003',
     user_id: 'user-003',
     name: 'Kwame Osei',
-    phone: '+233 24 345 6789',
+    phone: '+231 77 345 6789',
     email: 'kwame.osei@brightpath.org',
     role: 'school_admin',
-    assigned_region: 'Greater Accra',
-    assigned_district: 'Accra Metropolitan',
+    assigned_region: 'Montserrado',
+    assigned_district: 'Monrovia',
     is_active: true,
     created_at: '2023-01-10T08:00:00Z',
     updated_at: '2023-01-10T08:00:00Z'
@@ -132,10 +132,10 @@ export const testChildren: Child[] = [
     date_of_birth: '2015-05-15',
     gender: 'female',
     location: {
-      region: 'Greater Accra',
-      district: 'Accra Metropolitan',
-      community: 'Accra Central',
-      coordinates: { lat: 5.6037, lng: -0.1870 }
+      region: 'Montserrado',
+      district: 'Monrovia',
+      community: 'Central Monrovia',
+      coordinates: { lat: 6.3153, lng: -10.8074 }
     },
     disability_status: false,
     disability_details: null,
@@ -156,10 +156,10 @@ export const testChildren: Child[] = [
     date_of_birth: '2011-03-20',
     gender: 'male',
     location: {
-      region: 'Ashanti',
-      district: 'Kumasi Metropolitan',
-      community: 'Kumasi',
-      coordinates: { lat: 6.6885, lng: -1.6244 }
+      region: 'Nimba',
+      district: 'Ganta',
+      community: 'Ganta',
+      coordinates: { lat: 7.2333, lng: -8.5333 }
     },
     disability_status: false,
     disability_details: null,
@@ -180,10 +180,10 @@ export const testChildren: Child[] = [
     date_of_birth: '2014-11-10',
     gender: 'female',
     location: {
-      region: 'Northern',
-      district: 'Tamale Metropolitan',
-      community: 'Tamale',
-      coordinates: { lat: 9.4000, lng: -0.8399 }
+      region: 'Bong',
+      district: 'Gbarnga',
+      community: 'Gbarnga',
+      coordinates: { lat: 6.9956, lng: -9.4717 }
     },
     disability_status: true,
     disability_details: 'Visual impairment',
@@ -204,10 +204,10 @@ export const testChildren: Child[] = [
     date_of_birth: '2016-02-18',
     gender: 'male',
     location: {
-      region: 'Greater Accra',
-      district: 'Accra Metropolitan',
-      community: 'Accra Central',
-      coordinates: { lat: 5.6037, lng: -0.1870 }
+      region: 'Montserrado',
+      district: 'Monrovia',
+      community: 'Central Monrovia',
+      coordinates: { lat: 6.3153, lng: -10.8074 }
     },
     disability_status: false,
     disability_details: null,
@@ -228,10 +228,10 @@ export const testChildren: Child[] = [
     date_of_birth: '2013-07-25',
     gender: 'female',
     location: {
-      region: 'Central',
-      district: 'Cape Coast Metropolitan',
-      community: 'Cape Coast',
-      coordinates: { lat: 5.1053, lng: -1.2466 }
+      region: 'Grand Bassa',
+      district: 'Buchanan',
+      community: 'Buchanan',
+      coordinates: { lat: 5.8808, lng: -10.0447 }
     },
     disability_status: false,
     disability_details: null,
@@ -252,10 +252,10 @@ export const testChildren: Child[] = [
     date_of_birth: '2010-12-05',
     gender: 'male',
     location: {
-      region: 'Western',
-      district: 'Sekondi-Takoradi Metropolitan',
-      community: 'Takoradi',
-      coordinates: { lat: 4.9016, lng: -1.7831 }
+      region: 'Margibi',
+      district: 'Kakata',
+      community: 'Kakata',
+      coordinates: { lat: 6.5303, lng: -10.3517 }
     },
     disability_status: false,
     disability_details: null,
@@ -276,10 +276,10 @@ export const testChildren: Child[] = [
     date_of_birth: '2015-09-30',
     gender: 'female',
     location: {
-      region: 'Greater Accra',
-      district: 'Accra Metropolitan',
-      community: 'Accra Central',
-      coordinates: { lat: 5.6037, lng: -0.1870 }
+      region: 'Montserrado',
+      district: 'Monrovia',
+      community: 'Central Monrovia',
+      coordinates: { lat: 6.3153, lng: -10.8074 }
     },
     disability_status: true,
     disability_details: 'Hearing impairment',
@@ -300,10 +300,10 @@ export const testChildren: Child[] = [
     date_of_birth: '2012-04-12',
     gender: 'male',
     location: {
-      region: 'Ashanti',
-      district: 'Kumasi Metropolitan',
-      community: 'Kumasi',
-      coordinates: { lat: 6.6885, lng: -1.6244 }
+      region: 'Nimba',
+      district: 'Ganta',
+      community: 'Ganta',
+      coordinates: { lat: 7.2333, lng: -8.5333 }
     },
     disability_status: false,
     disability_details: null,

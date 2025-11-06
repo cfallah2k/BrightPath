@@ -67,10 +67,10 @@ export default function About() {
   ]
 
   const stats = [
-    { label: 'Children Tracked', value: '1,250+', color: 'teal' },
-    { label: 'Schools Connected', value: '85+', color: 'blue' },
-    { label: 'Field Workers', value: '120+', color: 'green' },
-    { label: 'Regions Covered', value: '16', color: 'purple' }
+    { label: 'Children Tracked', value: '0', color: 'teal' },
+    { label: 'Schools Connected', value: '0', color: 'blue' },
+    { label: 'Field Workers', value: '0', color: 'green' },
+    { label: 'Counties Covered', value: '0', color: 'purple' }
   ]
 
   return (
@@ -110,7 +110,7 @@ export default function About() {
               <Heading size="md">Our Mission</Heading>
               <Text color="gray.600" lineHeight="tall">
                 BrightPath is an innovative solution designed to accurately track enrollment, retention, 
-                and learning outcomes of out-of-school children in Ghana. Our mission is to ensure 
+                and learning outcomes of out-of-school children in Liberia. Our mission is to ensure 
                 every child has access to quality education by providing real-time data, AI-powered 
                 insights, and community-driven interventions.
               </Text>
@@ -192,17 +192,19 @@ export default function About() {
               <VStack align="stretch" spacing={3}>
                 <HStack spacing={3}>
                   <Icon as={MdEmail} color="teal.600" />
-                  <Link href="mailto:support@brightpath.org" color="teal.600">
-                    support@brightpath.org
+                  <Link href="mailto:annitallc@gmail.com" color="teal.600">
+                    annitallc@gmail.com
                   </Link>
                 </HStack>
                 <HStack spacing={3}>
                   <Icon as={MdPhone} color="teal.600" />
-                  <Text color="gray.700">+233 XX XXX XXXX</Text>
+                  <Link href="tel:+231775057227" color="teal.600">
+                    +231 77 505 7227
+                  </Link>
                 </HStack>
                 <HStack spacing={3}>
                   <Icon as={MdLocationOn} color="teal.600" />
-                  <Text color="gray.700">Accra, Ghana</Text>
+                  <Text color="gray.700">Monrovia, Liberia</Text>
                 </HStack>
               </VStack>
             </VStack>
@@ -216,10 +218,28 @@ export default function About() {
                 Developed for the Innovate4Children: Out of School Children Challenge
               </Text>
               <Divider />
+              <VStack align="start" spacing={2}>
+                <Text fontSize="sm" fontWeight="semibold" color="gray.700">
+                  Built by Annita LLC
+                </Text>
+                <HStack spacing={2}>
+                  <Icon as={MdEmail} color="gray.500" boxSize={4} />
+                  <Link href="mailto:annitallc@gmail.com" color="teal.600" fontSize="xs">
+                    annitallc@gmail.com
+                  </Link>
+                </HStack>
+                <HStack spacing={2}>
+                  <Icon as={MdPhone} color="gray.500" boxSize={4} />
+                  <Link href="tel:+231775057227" color="teal.600" fontSize="xs">
+                    +231 77 505 7227
+                  </Link>
+                </HStack>
+              </VStack>
+              <Divider />
               <Text fontSize="xs" color="gray.500">
-                © 2024 BrightPath. All rights reserved.
+                © {new Date().getFullYear()} BrightPath. All rights reserved.
                 <br />
-                Built with ❤️ for the children of Ghana
+                Built with ❤️ in Liberia for the children of Liberia
               </Text>
             </VStack>
           </Card>
