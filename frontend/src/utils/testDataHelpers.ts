@@ -1,5 +1,8 @@
 // Helper functions for working with test data
-import { testChildren, testSchools, testAttendance, testAssessments, getChildById, getSchoolById } from '../data/testData'
+import { testChildren, testAttendance, testAssessments } from '../data/testData'
+
+// Re-export helper functions from testData
+export { getChildById, getSchoolById } from '../data/testData'
 
 // Format child name
 export const formatChildName = (child: { first_name: string; last_name: string }) => {

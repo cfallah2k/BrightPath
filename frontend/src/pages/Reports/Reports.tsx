@@ -9,7 +9,7 @@ import {
   Button,
   Spinner
 } from '@chakra-ui/react'
-import { MdDownload, MdBarChart } from 'react-icons/md'
+import { MdDownload } from 'react-icons/md'
 import { useState, useEffect } from 'react'
 import Card from '../../components/common/Card'
 import Header from '../../components/layout/Header'

@@ -10,7 +10,7 @@ import {
   Select,
   Flex
 } from '@chakra-ui/react'
-import { MdAdd, MdAssessment } from 'react-icons/md'
+import { MdAdd } from 'react-icons/md'
 import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { Spinner } from '@chakra-ui/react'
@@ -18,7 +18,8 @@ import Card from '../../components/common/Card'
 import Header from '../../components/layout/Header'
 import MobileLayout from '../../components/layout/MobileLayout'
 import { testDataService } from '../../services/testDataService'
-import { formatChildName, formatDate, getChildById } from '../../utils/testDataHelpers'
+import { formatChildName, formatDate } from '../../utils/testDataHelpers'
+import { getChildById } from '../../data/testData'
 
 export default function AssessmentsList() {
   const navigate = useNavigate()

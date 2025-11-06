@@ -1,4 +1,4 @@
-import { Box, Text, VStack, HStack } from '@chakra-ui/react'
+import { Text, VStack, HStack } from '@chakra-ui/react'
 import { ReactNode } from 'react'
 
 interface StatCardProps {

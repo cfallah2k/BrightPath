@@ -9,7 +9,8 @@ import {
   Text,
   Badge,
   IconButton,
-  Flex
+  Flex,
+  Center
 } from '@chakra-ui/react'
 import { MdSearch, MdAdd, MdSchool, MdLocationOn } from 'react-icons/md'
 import { useState, useEffect } from 'react'
@@ -109,17 +110,14 @@ export default function SchoolsList() {
                 onClick={() => navigate(`/schools/${school.id}`)}
               >
                 <HStack spacing={3}>
-                  <Box
-                    w="50px"
-                    h="50px"
-                    borderRadius="lg"
-                    bg="blue.100"
-                    display="flex"
-                    align="center"
-                    justify="center"
-                  >
-                    <MdSchool size="24px" color="blue.600" />
-                  </Box>
+                      <Center
+                        w="50px"
+                        h="50px"
+                        borderRadius="lg"
+                        bg="blue.100"
+                      >
+                        <MdSchool size="24px" color="blue.600" />
+                      </Center>
                   <VStack align="start" spacing={1} flex={1}>
                     <Heading size="sm">{school.name}</Heading>
                     <HStack>

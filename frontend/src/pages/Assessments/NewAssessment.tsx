@@ -3,7 +3,6 @@ import {
   Button,
   FormControl,
   FormLabel,
-  Heading,
   Input,
   VStack,
   useToast,
@@ -11,10 +10,9 @@ import {
   SimpleGrid,
   Flex,
   RadioGroup,
-  Radio,
-  HStack
+  Radio
 } from '@chakra-ui/react'
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import Card from '../../components/common/Card'
 import Header from '../../components/layout/Header'

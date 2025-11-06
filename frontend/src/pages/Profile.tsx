@@ -7,9 +7,7 @@ import {
   Avatar,
   Badge,
   Button,
-  Divider,
   FormControl,
-  FormLabel,
   Input,
   useToast
 } from '@chakra-ui/react'

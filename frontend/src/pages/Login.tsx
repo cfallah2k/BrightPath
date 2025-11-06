@@ -14,13 +14,11 @@ import {
   Flex,
   Link,
   Select,
-  SimpleGrid,
-  Badge,
-  HStack
+  SimpleGrid
 } from '@chakra-ui/react'
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { MdEmail, MdLock, MdPerson } from 'react-icons/md'
+import { MdEmail, MdLock } from 'react-icons/md'
 import { useAuthStore } from '../store/authStore'
 import { testFieldWorkers } from '../data/testData'
 
@@ -104,7 +102,7 @@ export default function Login() {
   }
 
   return (
-    <Box minH="100vh" bg="gradient-to-br" bgGradient="linear(to-br, teal.400, teal.600)" display="flex" align="center">
+    <Flex minH="100vh" bgGradient="linear(to-br, teal.400, teal.600)" align="center" justify="center">
       <Container maxW="container.sm" py={8} px={4}>
         <Box
           bg="white"
@@ -234,7 +232,7 @@ export default function Login() {
           </VStack>
         </Box>
       </Container>
-    </Box>
+    </Flex>
   )
 }
 

@@ -22,13 +22,12 @@ import { useAuthStore } from '../store/authStore'
 import { useNavigate } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 import { testDataService } from '../services/testDataService'
-import { getRecentChildren, formatChildName, getEnrollmentStatusLabel } from '../utils/testDataHelpers'
+import { getRecentChildren, formatChildName } from '../utils/testDataHelpers'
 import { getSchoolById } from '../data/testData'
 
 export default function Dashboard() {
   const { fieldWorker } = useAuthStore()
   const navigate = useNavigate()
-  const bg = useColorModeValue('white', 'gray.800')
   const [stats, setStats] = useState({
     totalChildren: 0,
     enrolled: 0,
@@ -38,11 +37,9 @@ export default function Dashboard() {
     atRiskChange: 0,
   })
   const [recentChildren, setRecentChildren] = useState<any[]>([])
-  const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
     const loadData = async () => {
-      setIsLoading(true)
       try {
         const statistics = await testDataService.getStatistics()
         const recent = getRecentChildren(3)
@@ -65,8 +62,6 @@ export default function Dashboard() {
         })))
       } catch (error) {
         console.error('Failed to load dashboard data:', error)
-      } finally {
-        setIsLoading(false)
       }
     }
     

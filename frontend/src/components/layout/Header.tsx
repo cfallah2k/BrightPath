@@ -48,7 +48,6 @@ export default function Header({ title, showBack, onBack }: HeaderProps) {
 
   return (
     <Box
-      bg={bg}
       borderBottom="1px"
       borderColor={borderColor}
       shadow={{ base: 'sm', md: 'sm' }}

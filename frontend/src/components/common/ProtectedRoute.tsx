@@ -1,7 +1,7 @@
 import { ReactNode } from 'react'
 import { Navigate } from 'react-router-dom'
 import { useAuthStore } from '../../store/authStore'
-import { Box, Spinner, VStack, Text } from '@chakra-ui/react'
+import { Box, Spinner, VStack, Text, Flex } from '@chakra-ui/react'
 
 interface ProtectedRouteProps {
   children: ReactNode
@@ -12,12 +12,12 @@ export default function ProtectedRoute({ children }: ProtectedRouteProps) {
 
   if (isLoading) {
     return (
-      <Box minH="100vh" display="flex" align="center" justify="center">
+      <Flex minH="100vh" align="center" justify="center">
         <VStack spacing={4}>
           <Spinner size="xl" color="teal.500" />
           <Text color="gray.600">Loading...</Text>
         </VStack>
-      </Box>
+      </Flex>
     )
   }
 

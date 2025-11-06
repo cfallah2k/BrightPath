@@ -11,17 +11,17 @@ import {
   Checkbox,
   Text,
   SimpleGrid,
-  HStack,
-  Badge
+  HStack
 } from '@chakra-ui/react'
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import Card from '../../components/common/Card'
 import Header from '../../components/layout/Header'
 import MobileLayout from '../../components/layout/MobileLayout'
 import { testDataService } from '../../services/testDataService'
 import { testChildren, testSchools } from '../../data/testData'
-import { formatChildName, getSchoolById } from '../../utils/testDataHelpers'
+import { formatChildName } from '../../utils/testDataHelpers'
+import { getSchoolById } from '../../data/testData'
 
 export default function RecordAttendance() {
   const { childId } = useParams()

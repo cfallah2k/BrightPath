@@ -11,8 +11,8 @@ import {
   IconButton,
   Flex,
   Select,
-  useColorModeValue,
-  Spinner
+  Spinner,
+  Center
 } from '@chakra-ui/react'
 import { MdSearch, MdAdd, MdPerson } from 'react-icons/md'
 import { useState, useEffect } from 'react'
@@ -21,7 +21,8 @@ import Card from '../../components/common/Card'
 import Header from '../../components/layout/Header'
 import MobileLayout from '../../components/layout/MobileLayout'
 import { testDataService } from '../../services/testDataService'
-import { formatChildName, calculateAge, getEnrollmentStatusColor, getSchoolById } from '../../utils/testDataHelpers'
+import { formatChildName, calculateAge, getEnrollmentStatusColor } from '../../utils/testDataHelpers'
+import { getSchoolById } from '../../data/testData'
 
 export default function ChildrenList() {
   const [searchQuery, setSearchQuery] = useState('')
@@ -29,7 +30,6 @@ export default function ChildrenList() {
   const [children, setChildren] = useState<any[]>([])
   const [isLoading, setIsLoading] = useState(true)
   const navigate = useNavigate()
-  const bg = useColorModeValue('white', 'gray.800')
 
   useEffect(() => {
     const loadChildren = async () => {
@@ -49,21 +49,6 @@ export default function ChildrenList() {
     
     loadChildren()
   }, [searchQuery, statusFilter])
-
-  const getStatusColor = (status: string) => {
-    switch (status) {
-      case 'enrolled':
-        return 'green'
-      case 'at_risk':
-        return 'orange'
-      case 'not_enrolled':
-        return 'red'
-      case 'dropped_out':
-        return 'gray'
-      default:
-        return 'gray'
-    }
-  }
 
   return (
     <MobileLayout>
@@ -85,18 +70,16 @@ export default function ChildrenList() {
                 <MdSearch color="gray.400" />
               </InputLeftElement>
               <Input
-                placeholder="Search children by name..."
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                bg={bg}
-              />
-            </InputGroup>
-            <Select
-              value={statusFilter}
-              onChange={(e) => setStatusFilter(e.target.value)}
-              w={{ base: 'full', md: '200px' }}
-              bg={bg}
-            >
+              placeholder="Search children by name..."
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+            />
+          </InputGroup>
+          <Select
+            value={statusFilter}
+            onChange={(e) => setStatusFilter(e.target.value)}
+            w={{ base: 'full', md: '200px' }}
+          >
               <option value="all">All Status</option>
               <option value="enrolled">Enrolled</option>
               <option value="at_risk">At Risk</option>
@@ -135,18 +118,15 @@ export default function ChildrenList() {
                   >
                     <HStack justify="space-between" align="start">
                       <HStack spacing={3} flex={1}>
-                        <Box
+                        <Center
                           w="50px"
                           h="50px"
                           borderRadius="full"
                           bg="teal.100"
-                          display="flex"
-                          align="center"
-                          justify="center"
                           flexShrink={0}
                         >
                           <MdPerson size="24px" color="teal.600" />
-                        </Box>
+                        </Center>
                         <VStack align="start" spacing={1} flex={1}>
                           <Heading size="sm">
                             {formatChildName(child)}

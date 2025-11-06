@@ -9,9 +9,9 @@ import {
   Text,
   VStack,
   useToast,
-  Flex,
   Link,
-  Select
+  Select,
+  Flex
 } from '@chakra-ui/react'
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
@@ -82,7 +82,7 @@ export default function Signup() {
   }
 
   return (
-    <Box minH="100vh" bg="gradient-to-br" bgGradient="linear(to-br, teal.400, teal.600)" display="flex" align="center">
+    <Flex minH="100vh" bgGradient="linear(to-br, teal.400, teal.600)" align="center" justify="center">
       <Container maxW="container.sm" py={8} px={4}>
         <Box
           bg="white"
@@ -193,7 +193,7 @@ export default function Signup() {
           </VStack>
         </Box>
       </Container>
-    </Box>
+    </Flex>
   )
 }
 

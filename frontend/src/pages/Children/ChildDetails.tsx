@@ -8,13 +8,13 @@ import {
   Button,
   SimpleGrid,
   Divider,
-  IconButton,
-  useColorModeValue,
   Tabs,
   TabList,
   TabPanels,
   Tab,
-  TabPanel
+  TabPanel,
+  Flex,
+  Center
 } from '@chakra-ui/react'
 import { useParams, useNavigate } from 'react-router-dom'
 import { MdEdit, MdSchool, MdCalendarToday, MdLocationOn, MdPerson } from 'react-icons/md'
@@ -53,9 +53,9 @@ export default function ChildDetails() {
     return (
       <MobileLayout>
         <Header title="Loading..." showBack onBack={() => navigate('/children')} />
-        <Box display="flex" justify="center" align="center" minH="50vh">
+        <Flex justify="center" align="center" minH="50vh">
           <Spinner size="xl" color="teal.500" />
-        </Box>
+        </Flex>
       </MobileLayout>
     )
   }
@@ -88,17 +88,14 @@ export default function ChildDetails() {
           <Card>
             <HStack justify="space-between" mb={4}>
               <HStack spacing={3}>
-                <Box
+                <Center
                   w="60px"
                   h="60px"
                   borderRadius="full"
                   bg="teal.100"
-                  display="flex"
-                  align="center"
-                  justify="center"
                 >
                   <MdPerson size="30px" color="teal.600" />
-                </Box>
+                </Center>
                 <VStack align="start" spacing={0}>
                   <Heading size="md">
                     {formatChildName(child)}

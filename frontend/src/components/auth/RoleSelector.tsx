@@ -5,7 +5,6 @@ import {
   Text,
   Badge,
   SimpleGrid,
-  Button,
   useColorModeValue
 } from '@chakra-ui/react'
 import { MdPerson, MdSchool, MdAdminPanelSettings, MdSupervisorAccount } from 'react-icons/md'

@@ -418,10 +418,12 @@ const generateAttendanceRecords = (): Attendance[] => {
         
         // Calculate attendance rate based on enrollment status
         let present = true
-        if (child.enrollment_status === 'at_risk') {
+        if (child.enrollment_status === 'at_risk' || child.enrollment_status === 'not_enrolled') {
           present = Math.random() > 0.3 // 70% attendance for at-risk
-        } else {
+        } else if (child.enrollment_status === 'enrolled') {
           present = Math.random() > 0.15 // 85% attendance for enrolled
+        } else {
+          present = false // Dropped out children don't attend
         }
         
         records.push({
