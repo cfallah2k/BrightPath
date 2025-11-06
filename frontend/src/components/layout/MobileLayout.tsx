@@ -22,7 +22,7 @@ const navItems = [
 ]
 
 // Routes that should hide bottom nav
-const routesWithoutBottomNav = ['/login', '/signup', '/attendance/record', '/children/register', '/assessments/new', '/children/:id/edit']
+const routesWithoutBottomNav = ['/loader', '/role-selector', '/login', '/signup', '/attendance/record', '/children/register', '/assessments/new', '/children/:id/edit']
 
 export default function MobileLayout({ children }: MobileLayoutProps) {
   const location = useLocation()

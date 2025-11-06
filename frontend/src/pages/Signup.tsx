@@ -13,11 +13,13 @@ import {
   Select,
   Flex
 } from '@chakra-ui/react'
-import { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useState, useEffect } from 'react'
+import { useNavigate, useLocation } from 'react-router-dom'
+import { MdArrowBack } from 'react-icons/md'
 import { useAuthStore } from '../store/authStore'
 
 export default function Signup() {
+  const location = useLocation()
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -30,6 +32,17 @@ export default function Signup() {
   const navigate = useNavigate()
   const toast = useToast()
   const { setUser, setFieldWorker } = useAuthStore()
+
+  // Get role from route state or sessionStorage
+  useEffect(() => {
+    const roleFromState = (location.state as any)?.role
+    const roleFromStorage = sessionStorage.getItem('selectedRole')
+    const initialRole = roleFromState || roleFromStorage || 'field_worker'
+    
+    if (initialRole && ['field_worker', 'school_admin', 'education_officer', 'coordinator'].includes(initialRole)) {
+      setFormData(prev => ({ ...prev, role: initialRole as any }))
+    }
+  }, [location])
 
   const handleSignup = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -92,11 +105,24 @@ export default function Signup() {
         >
           <VStack spacing={6} align="stretch">
             <Box textAlign="center">
+              <Button
+                variant="ghost"
+                size="sm"
+                leftIcon={<MdArrowBack />}
+                onClick={() => navigate('/role-selector')}
+                mb={2}
+                color="gray.600"
+              >
+                Change Role
+              </Button>
               <Heading size="xl" color="teal.600" mb={2}>
                 Create Account
               </Heading>
               <Text color="gray.600">
-                Join BrightPath to track out-of-school children
+                {formData.role === 'field_worker' && 'Field Worker'}
+                {formData.role === 'school_admin' && 'School Administrator'}
+                {formData.role === 'education_officer' && 'Education Officer'}
+                {formData.role === 'coordinator' && 'Coordinator'}
               </Text>
             </Box>
 

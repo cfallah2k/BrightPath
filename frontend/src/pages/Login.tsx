@@ -16,9 +16,9 @@ import {
   Select,
   SimpleGrid
 } from '@chakra-ui/react'
-import { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
-import { MdEmail, MdLock } from 'react-icons/md'
+import { useState, useEffect } from 'react'
+import { useNavigate, useLocation } from 'react-router-dom'
+import { MdEmail, MdLock, MdArrowBack } from 'react-icons/md'
 import { useAuthStore } from '../store/authStore'
 import { testFieldWorkers } from '../data/testData'
 
@@ -30,6 +30,7 @@ const roleOptions = [
 ]
 
 export default function Login() {
+  const location = useLocation()
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [selectedRole, setSelectedRole] = useState<'field_worker' | 'school_admin' | 'education_officer' | 'coordinator'>('field_worker')
@@ -37,6 +38,17 @@ export default function Login() {
   const navigate = useNavigate()
   const toast = useToast()
   const { setUser, setFieldWorker } = useAuthStore()
+
+  // Get role from route state or sessionStorage
+  useEffect(() => {
+    const roleFromState = (location.state as any)?.role
+    const roleFromStorage = sessionStorage.getItem('selectedRole')
+    const initialRole = roleFromState || roleFromStorage || 'field_worker'
+    
+    if (initialRole && ['field_worker', 'school_admin', 'education_officer', 'coordinator'].includes(initialRole)) {
+      setSelectedRole(initialRole as any)
+    }
+  }, [location])
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -112,11 +124,21 @@ export default function Login() {
         >
           <VStack spacing={6} align="stretch">
             <Box textAlign="center">
+              <Button
+                variant="ghost"
+                size="sm"
+                leftIcon={<MdArrowBack />}
+                onClick={() => navigate('/role-selector')}
+                mb={2}
+                color="gray.600"
+              >
+                Change Role
+              </Button>
               <Heading size="xl" color="teal.600" mb={2}>
-                BrightPath
+                Sign In
               </Heading>
               <Text color="gray.600">
-                Out of School Children Tracker
+                {roleOptions.find(r => r.value === selectedRole)?.label}
               </Text>
             </Box>
 

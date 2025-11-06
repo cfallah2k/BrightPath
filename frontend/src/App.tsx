@@ -3,6 +3,8 @@ import { ChakraProvider, extendTheme } from '@chakra-ui/react'
 import ProtectedRoute from './components/common/ProtectedRoute'
 
 // Pages
+import Loader from './pages/Loader'
+import RoleSelector from './pages/RoleSelector'
 import Login from './pages/Login'
 import Signup from './pages/Signup'
 import Dashboard from './pages/Dashboard'
@@ -98,7 +100,13 @@ function App() {
     <ChakraProvider theme={theme}>
       <BrowserRouter>
         <Routes>
-          {/* Public Routes */}
+          {/* Initial Loader */}
+          <Route path="/loader" element={<Loader />} />
+          
+          {/* Role Selection - Entry Point */}
+          <Route path="/role-selector" element={<RoleSelector />} />
+          
+          {/* Public Auth Routes */}
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
           
@@ -217,8 +225,8 @@ function App() {
           />
           
           {/* Default redirect */}
-          <Route path="/" element={<Navigate to="/dashboard" replace />} />
-          <Route path="*" element={<Navigate to="/dashboard" replace />} />
+          <Route path="/" element={<Navigate to="/loader" replace />} />
+          <Route path="*" element={<Navigate to="/loader" replace />} />
         </Routes>
       </BrowserRouter>
     </ChakraProvider>

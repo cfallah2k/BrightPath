@@ -25,10 +25,13 @@ interface AuthState {
 export const useAuthStore = create<AuthState>((set) => ({
   user: null,
   fieldWorker: null,
-  isLoading: true,
+  isLoading: false, // Start as false, will be set to true during initial check
   setUser: (user) => set({ user }),
   setFieldWorker: (fieldWorker) => set({ fieldWorker }),
   setLoading: (isLoading) => set({ isLoading }),
-  logout: () => set({ user: null, fieldWorker: null }),
+  logout: () => {
+    set({ user: null, fieldWorker: null })
+    sessionStorage.removeItem('selectedRole')
+  },
 }))
 
