@@ -90,7 +90,7 @@ export default function ChildLocationMap({
         title: childName || 'Child Location',
         icon: {
           url: 'http://maps.google.com/mapfiles/ms/icons/red-dot.png',
-          scaledSize: new window.google.maps.Size(40, 40)
+          scaledSize: new (window.google.maps as any).Size(40, 40)
         }
       })
 

@@ -119,6 +119,12 @@ declare global {
         height: number
       }
       
+      class Size {
+        constructor(width: number, height: number)
+        width: number
+        height: number
+      }
+      
       enum GeocoderStatus {
         OK = 'OK',
         ERROR = 'ERROR'
