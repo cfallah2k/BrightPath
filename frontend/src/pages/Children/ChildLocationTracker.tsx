@@ -15,13 +15,12 @@ import {
   Alert,
   AlertIcon
 } from '@chakra-ui/react'
-import { MdLocationOn, MdHistory, MdRefresh, MdArrowBack, MdMyLocation } from 'react-icons/md'
+import { MdLocationOn, MdHistory, MdRefresh, MdMyLocation } from 'react-icons/md'
 import Header from '../../components/layout/Header'
 import MobileLayout from '../../components/layout/MobileLayout'
 import ChildLocationMap from '../../components/maps/ChildLocationMap'
 import { testDataService } from '../../services/testDataService'
 import { formatChildName } from '../../utils/testDataHelpers'
-import { getChildById } from '../../data/testData'
 
 interface LocationHistory {
   id: string
@@ -52,14 +51,14 @@ export default function ChildLocationTracker() {
     setIsLoading(true)
     try {
       const childData = await testDataService.getChildById(id!)
-      if (childData) {
+      if (childData && childData.child) {
         setChild(childData)
         // Set initial location from child data
-        if (childData.location?.coordinates) {
+        if (childData.child.location?.coordinates) {
           setCurrentLocation({
-            lat: childData.location.coordinates.lat,
-            lng: childData.location.coordinates.lng,
-            address: `${childData.location.community}, ${childData.location.district}, ${childData.location.region}`
+            lat: childData.child.location.coordinates.lat,
+            lng: childData.child.location.coordinates.lng,
+            address: `${childData.child.location.community}, ${childData.child.location.district}, ${childData.child.location.region}`
           })
         }
       }
@@ -95,11 +94,6 @@ export default function ChildLocationTracker() {
     setLocationHistory(mockHistory)
   }
 
-  const handleUpdateLocation = (location: { lat: number; lng: number; address: string }) => {
-    setCurrentLocation(location)
-    // Here you would save to backend
-    console.log('Location updated:', location)
-  }
 
   const handleRefreshLocation = () => {
     // Get current GPS location
@@ -126,7 +120,7 @@ export default function ChildLocationTracker() {
     return (
       <MobileLayout>
         <Header title="Location Tracker" showBack onBack={() => navigate(`/children/${id}`)} />
-        <Box display="flex" justify="center" align="center" minH="50vh">
+        <Box display="flex" justifyContent="center" alignItems="center" minH="50vh">
           <Spinner size="xl" color="teal.500" />
         </Box>
       </MobileLayout>
@@ -163,7 +157,7 @@ export default function ChildLocationTracker() {
               <HStack spacing={2}>
                 <Icon as={MdLocationOn} color="teal.500" />
                 <Text fontSize="sm" color="gray.600">
-                  {child.location?.community}, {child.location?.district}, {child.location?.region}
+                  {child.child?.location?.community}, {child.child?.location?.district}, {child.child?.location?.region}
                 </Text>
               </HStack>
               <HStack spacing={2}>
@@ -192,7 +186,6 @@ export default function ChildLocationTracker() {
             <VStack align="stretch" spacing={4}>
               <Heading size="sm">Current Location</Heading>
               <ChildLocationMap
-                childId={child.id}
                 childName={formatChildName(child)}
                 initialLocation={currentLocation || undefined}
                 mode="view"

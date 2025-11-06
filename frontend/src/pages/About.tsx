@@ -9,8 +9,7 @@ import {
   SimpleGrid,
   Divider,
   Badge,
-  Link,
-  Flex
+  Link
 } from '@chakra-ui/react'
 import { 
   MdSchool, 
@@ -20,16 +19,13 @@ import {
   MdPhone,
   MdEmail,
   MdLocationOn,
-  MdLanguage,
   MdCode,
   MdCloud
 } from 'react-icons/md'
 import Header from '../components/layout/Header'
 import MobileLayout from '../components/layout/MobileLayout'
-import { useAuthStore } from '../store/authStore'
 
 export default function About() {
-  const { fieldWorker } = useAuthStore()
 
   const features = [
     {

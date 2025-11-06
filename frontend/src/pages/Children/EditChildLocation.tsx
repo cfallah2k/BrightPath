@@ -4,6 +4,7 @@ import {
   Box,
   Heading,
   VStack,
+  Text,
   Button,
   useToast,
   Card
@@ -31,13 +32,13 @@ export default function EditChildLocation() {
   const loadChild = async () => {
     try {
       const childData = await testDataService.getChildById(id!)
-      if (childData) {
+      if (childData && childData.child) {
         setChild(childData)
-        if (childData.location?.coordinates) {
+        if (childData.child.location?.coordinates) {
           setSelectedLocation({
-            lat: childData.location.coordinates.lat,
-            lng: childData.location.coordinates.lng,
-            address: `${childData.location.community}, ${childData.location.district}, ${childData.location.region}`
+            lat: childData.child.location.coordinates.lat,
+            lng: childData.child.location.coordinates.lng,
+            address: `${childData.child.location.community}, ${childData.child.location.district}, ${childData.child.location.region}`
           })
         }
       }

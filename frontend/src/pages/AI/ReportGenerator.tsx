@@ -6,7 +6,6 @@ import {
   HStack,
   Text,
   Button,
-  Select,
   Card,
   Checkbox,
   SimpleGrid,
@@ -31,7 +30,6 @@ interface ReportOption {
 }
 
 export default function ReportGenerator() {
-  const { fieldWorker } = useAuthStore()
   const [selectedReports, setSelectedReports] = useState<string[]>([])
   const [isGenerating, setIsGenerating] = useState(false)
   const [progress, setProgress] = useState(0)

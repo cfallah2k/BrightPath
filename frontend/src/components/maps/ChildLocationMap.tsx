@@ -1,7 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import {
   Box,
-  Heading,
   VStack,
   HStack,
   Text,
@@ -16,7 +15,7 @@ import {
   Alert,
   AlertIcon
 } from '@chakra-ui/react'
-import { MdLocationOn, MdMyLocation, MdSearch, MdDirections, MdRefresh } from 'react-icons/md'
+import { MdLocationOn, MdMyLocation, MdSearch, MdDirections } from 'react-icons/md'
 
 interface ChildLocationMapProps {
   childId?: string
@@ -33,7 +32,6 @@ interface ChildLocationMapProps {
 }
 
 export default function ChildLocationMap({
-  childId,
   childName,
   initialLocation,
   onLocationSelect,
@@ -103,7 +101,7 @@ export default function ChildLocationMap({
       if (defaultLocation) {
         geocoderRef.current.geocode(
           { location: defaultLocation },
-          (results, status) => {
+          (results: google.maps.GeocoderResult[] | null, status: google.maps.GeocoderStatus) => {
             if (status === 'OK' && results && results[0]) {
               setAddress(results[0].formatted_address)
             }
@@ -195,7 +193,7 @@ export default function ChildLocationMap({
     if (geocoderRef.current) {
       geocoderRef.current.geocode(
         { location: { lat, lng } },
-        (results, status) => {
+        (results: google.maps.GeocoderResult[] | null, status: google.maps.GeocoderStatus) => {
           if (status === 'OK' && results && results[0]) {
             const newAddress = results[0].formatted_address
             setAddress(newAddress)
@@ -347,10 +345,4 @@ export default function ChildLocationMap({
   )
 }
 
-// Extend Window interface for TypeScript
-declare global {
-  interface Window {
-    google: typeof google
-  }
-}
 

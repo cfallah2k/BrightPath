@@ -16,7 +16,7 @@ import {
   AlertIcon,
   Divider
 } from '@chakra-ui/react'
-import { MdLightbulb, MdCheckCircle, MdSchedule, MdPerson, MdSchool, MdTrendingUp } from 'react-icons/md'
+import { MdLightbulb, MdCheckCircle, MdSchedule, MdPerson, MdSchool } from 'react-icons/md'
 import Header from '../../components/layout/Header'
 import MobileLayout from '../../components/layout/MobileLayout'
 import { useAuthStore } from '../../store/authStore'
@@ -37,7 +37,6 @@ interface Recommendation {
 }
 
 export default function AIRecommendations() {
-  const { fieldWorker } = useAuthStore()
   const [recommendations, setRecommendations] = useState<Recommendation[]>([])
   const [filter, setFilter] = useState<'all' | 'urgent' | 'high' | 'medium' | 'low'>('all')
   const [isLoading, setIsLoading] = useState(true)

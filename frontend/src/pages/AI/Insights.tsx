@@ -8,7 +8,6 @@ import {
   SimpleGrid,
   Card,
   Badge,
-  Progress,
   Icon,
   Flex,
   Button,
@@ -19,14 +18,11 @@ import {
   StatArrow,
   Alert,
   AlertIcon,
-  AlertTitle,
-  AlertDescription
+  AlertTitle
 } from '@chakra-ui/react'
 import { MdTrendingUp, MdWarning, MdInsights, MdLightbulb, MdBarChart, MdPeople } from 'react-icons/md'
 import Header from '../../components/layout/Header'
 import MobileLayout from '../../components/layout/MobileLayout'
-import { useAuthStore } from '../../store/authStore'
-import { testDataService } from '../../services/testDataService'
 
 interface AIInsight {
   id: string
@@ -40,7 +36,6 @@ interface AIInsight {
 }
 
 export default function AIInsights() {
-  const { fieldWorker } = useAuthStore()
   const [insights, setInsights] = useState<AIInsight[]>([])
   const [isLoading, setIsLoading] = useState(true)
   const [stats, setStats] = useState({

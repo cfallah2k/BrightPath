@@ -12,7 +12,7 @@ import {
   Avatar,
   Badge
 } from '@chakra-ui/react'
-import { MdNotifications, MdAccountCircle, MdLogout, MdSettings } from 'react-icons/md'
+import { MdAccountCircle, MdLogout, MdSettings } from 'react-icons/md'
 import { useNavigate } from 'react-router-dom'
 import { useAuthStore } from '../../store/authStore'
 import NotificationBell from './NotificationBell'

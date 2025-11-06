@@ -11,8 +11,7 @@ import {
   Card,
   Progress,
   SimpleGrid,
-  Badge,
-  Flex
+  Badge
 } from '@chakra-ui/react'
 import { 
   MdPerson, 
@@ -48,7 +47,6 @@ interface TutorialModule {
 export default function Tutorial() {
   const { fieldWorker } = useAuthStore()
   const navigate = useNavigate()
-  const [selectedModule, setSelectedModule] = useState<string | null>(null)
 
   const role = fieldWorker?.role || 'field_worker'
 

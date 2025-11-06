@@ -16,13 +16,6 @@ import {
 } from '@chakra-ui/react'
 import { MdArrowBack, MdLock } from 'react-icons/md'
 
-interface OTPVerificationProps {
-  purpose?: 'login' | 'signup' | 'password_reset' | 'phone_verification' | 'email_verification'
-  onVerify: (otp: string) => Promise<void>
-  onResend: () => Promise<void>
-  contactInfo?: string
-}
-
 export default function OTPVerification() {
   const location = useLocation()
   const navigate = useNavigate()

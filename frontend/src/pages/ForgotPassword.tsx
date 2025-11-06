@@ -10,13 +10,14 @@ import {
   Input,
   Text,
   VStack,
+  HStack,
   useToast,
   Flex,
   Link,
   InputGroup,
   InputLeftElement
 } from '@chakra-ui/react'
-import { MdEmail, MdArrowBack, MdPhone } from 'react-icons/md'
+import { MdEmail, MdArrowBack } from 'react-icons/md'
 
 export default function ForgotPassword() {
   const [email, setEmail] = useState('')
@@ -169,15 +170,15 @@ export default function ForgotPassword() {
 
 // OTP Input Component
 function OTPInput({ onComplete, onResend }: { onComplete: (otp: string) => void; onResend: () => void }) {
-  const [otp, setOtp] = useState(['', '', '', '', '', ''])
+  const [otpDigits, setOtpDigits] = useState(['', '', '', '', '', ''])
   const inputRefs = useState(() => Array(6).fill(null).map(() => ({ current: null as HTMLInputElement | null })))[0]
 
   const handleChange = (index: number, value: string) => {
     if (value.length > 1) return
     
-    const newOtp = [...otp]
+    const newOtp = [...otpDigits]
     newOtp[index] = value
-    setOtp(newOtp)
+    setOtpDigits(newOtp)
 
     // Auto-focus next input
     if (value && index < 5) {
@@ -191,7 +192,7 @@ function OTPInput({ onComplete, onResend }: { onComplete: (otp: string) => void;
   }
 
   const handleKeyDown = (index: number, e: React.KeyboardEvent) => {
-    if (e.key === 'Backspace' && !otp[index] && index > 0) {
+    if (e.key === 'Backspace' && !otpDigits[index] && index > 0) {
       inputRefs[index - 1].current?.focus()
     }
   }
@@ -199,13 +200,13 @@ function OTPInput({ onComplete, onResend }: { onComplete: (otp: string) => void;
   const handlePaste = (e: React.ClipboardEvent) => {
     e.preventDefault()
     const pastedData = e.clipboardData.getData('text').slice(0, 6)
-    const newOtp = [...otp]
+    const newOtp = [...otpDigits]
     pastedData.split('').forEach((char, index) => {
       if (index < 6 && /^\d$/.test(char)) {
         newOtp[index] = char
       }
     })
-    setOtp(newOtp)
+    setOtpDigits(newOtp)
     if (pastedData.length === 6) {
       onComplete(pastedData)
     }
@@ -214,7 +215,7 @@ function OTPInput({ onComplete, onResend }: { onComplete: (otp: string) => void;
   return (
     <VStack spacing={4}>
       <HStack spacing={2} justify="center">
-        {otp.map((digit, index) => (
+        {otpDigits.map((digit, index) => (
           <Input
             key={index}
             ref={(el) => (inputRefs[index].current = el)}

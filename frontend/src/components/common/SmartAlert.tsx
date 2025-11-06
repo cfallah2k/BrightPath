@@ -6,8 +6,7 @@ import {
   Button,
   HStack,
   VStack,
-  Badge,
-  Icon
+  Badge
 } from '@chakra-ui/react'
 import { MdWarning, MdInfo, MdCheckCircle, MdError } from 'react-icons/md'
 

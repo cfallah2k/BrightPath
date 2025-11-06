@@ -11,7 +11,6 @@ import {
   Input,
   useToast,
   SimpleGrid,
-  Card,
   Icon
 } from '@chakra-ui/react'
 import { MdEdit, MdPhone, MdEmail, MdLocationOn, MdInsights, MdLightbulb, MdChat, MdBarChart, MdSchool, MdPerson } from 'react-icons/md'
@@ -117,50 +116,62 @@ export default function Profile() {
             <VStack align="stretch" spacing={4}>
               <Heading size="sm" color="purple.700">AI Features</Heading>
               <SimpleGrid columns={2} spacing={3}>
-                <Card
-                  clickable
+                <Box
+                  as="button"
                   onClick={() => navigate('/ai/insights')}
                   p={3}
                   bg="white"
+                  borderRadius="md"
+                  _hover={{ shadow: 'md' }}
+                  cursor="pointer"
                 >
                   <VStack spacing={2}>
                     <Icon as={MdInsights} boxSize={5} color="purple.500" />
                     <Text fontSize="xs" fontWeight="semibold">AI Insights</Text>
                   </VStack>
-                </Card>
-                <Card
-                  clickable
+                </Box>
+                <Box
+                  as="button"
                   onClick={() => navigate('/ai/recommendations')}
                   p={3}
                   bg="white"
+                  borderRadius="md"
+                  _hover={{ shadow: 'md' }}
+                  cursor="pointer"
                 >
                   <VStack spacing={2}>
                     <Icon as={MdLightbulb} boxSize={5} color="orange.500" />
                     <Text fontSize="xs" fontWeight="semibold">Recommendations</Text>
                   </VStack>
-                </Card>
-                <Card
-                  clickable
+                </Box>
+                <Box
+                  as="button"
                   onClick={() => navigate('/ai/chat')}
                   p={3}
                   bg="white"
+                  borderRadius="md"
+                  _hover={{ shadow: 'md' }}
+                  cursor="pointer"
                 >
                   <VStack spacing={2}>
                     <Icon as={MdChat} boxSize={5} color="teal.500" />
                     <Text fontSize="xs" fontWeight="semibold">AI Assistant</Text>
                   </VStack>
-                </Card>
-                <Card
-                  clickable
+                </Box>
+                <Box
+                  as="button"
                   onClick={() => navigate('/ai/reports')}
                   p={3}
                   bg="white"
+                  borderRadius="md"
+                  _hover={{ shadow: 'md' }}
+                  cursor="pointer"
                 >
                   <VStack spacing={2}>
                     <Icon as={MdBarChart} boxSize={5} color="blue.500" />
                     <Text fontSize="xs" fontWeight="semibold">AI Reports</Text>
                   </VStack>
-                </Card>
+                </Box>
               </SimpleGrid>
             </VStack>
           </Card>

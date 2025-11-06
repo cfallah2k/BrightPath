@@ -11,10 +11,9 @@ import {
   Text,
   Icon,
   Box,
-  Image,
   useToast
 } from '@chakra-ui/react'
-import { MdPhoneAndroid, MdPhoneIphone, MdComputer, MdClose } from 'react-icons/md'
+import { MdPhoneAndroid, MdPhoneIphone, MdComputer } from 'react-icons/md'
 
 interface InstallAppModalProps {
   isOpen: boolean

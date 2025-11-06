@@ -1,17 +1,14 @@
 import { useState, useRef, useEffect } from 'react'
 import {
   Box,
-  Heading,
   VStack,
   HStack,
   Text,
   Input,
   Button,
-  Icon,
   Card,
   Flex,
-  Avatar,
-  Badge
+  Avatar
 } from '@chakra-ui/react'
 import { MdSend, MdSmartToy, MdPerson } from 'react-icons/md'
 import Header from '../../components/layout/Header'
