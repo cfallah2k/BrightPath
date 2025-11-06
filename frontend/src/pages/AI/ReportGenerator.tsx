@@ -18,7 +18,6 @@ import {
 import { MdFileDownload, MdAutoAwesome, MdBarChart, MdPeople, MdSchool } from 'react-icons/md'
 import Header from '../../components/layout/Header'
 import MobileLayout from '../../components/layout/MobileLayout'
-import { useAuthStore } from '../../store/authStore'
 
 interface ReportOption {
   id: string

@@ -4,8 +4,6 @@ import { useLocation, useNavigate } from 'react-router-dom'
 import { 
   MdHome, 
   MdPerson, 
-  MdSchool, 
-  MdAssessment, 
   MdBarChart
 } from 'react-icons/md'
 

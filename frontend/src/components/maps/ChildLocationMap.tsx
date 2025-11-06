@@ -17,6 +17,8 @@ import {
 } from '@chakra-ui/react'
 import { MdLocationOn, MdMyLocation, MdSearch, MdDirections } from 'react-icons/md'
 
+/// <reference types="@types/google.maps" />
+
 interface ChildLocationMapProps {
   childId?: string
   childName?: string
@@ -40,14 +42,14 @@ export default function ChildLocationMap({
   height = '400px'
 }: ChildLocationMapProps) {
   const mapRef = useRef<HTMLDivElement>(null)
-  const [map, setMap] = useState<google.maps.Map | null>(null)
-  const [marker, setMarker] = useState<google.maps.Marker | null>(null)
+  const [map, setMap] = useState<any>(null)
+  const [marker, setMarker] = useState<any>(null)
   const [currentLocation, setCurrentLocation] = useState<{ lat: number; lng: number } | null>(null)
   const [address, setAddress] = useState(initialLocation?.address || '')
   const [isLoading, setIsLoading] = useState(true)
   const [searchQuery, setSearchQuery] = useState('')
-  const autocompleteRef = useRef<google.maps.places.Autocomplete | null>(null)
-  const geocoderRef = useRef<google.maps.Geocoder | null>(null)
+  const autocompleteRef = useRef<any>(null)
+  const geocoderRef = useRef<any>(null)
 
   // Initialize Google Maps
   useEffect(() => {
@@ -101,7 +103,7 @@ export default function ChildLocationMap({
       if (defaultLocation) {
         geocoderRef.current.geocode(
           { location: defaultLocation },
-          (results: google.maps.GeocoderResult[] | null, status: google.maps.GeocoderStatus) => {
+          (results: any, status: string) => {
             if (status === 'OK' && results && results[0]) {
               setAddress(results[0].formatted_address)
             }
@@ -123,7 +125,7 @@ export default function ChildLocationMap({
 
       // Handle map click (for edit mode)
       if (mode === 'edit') {
-        mapInstance.addListener('click', (e: google.maps.MapMouseEvent) => {
+        mapInstance.addListener('click', (e: any) => {
           if (e.latLng) {
             const lat = e.latLng.lat()
             const lng = e.latLng.lng()
@@ -193,7 +195,7 @@ export default function ChildLocationMap({
     if (geocoderRef.current) {
       geocoderRef.current.geocode(
         { location: { lat, lng } },
-        (results: google.maps.GeocoderResult[] | null, status: google.maps.GeocoderStatus) => {
+        (results: any, status: string) => {
           if (status === 'OK' && results && results[0]) {
             const newAddress = results[0].formatted_address
             setAddress(newAddress)

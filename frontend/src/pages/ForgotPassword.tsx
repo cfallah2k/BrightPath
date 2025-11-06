@@ -121,7 +121,7 @@ export default function ForgotPassword() {
 
             {step === 'otp' && (
               <OTPInput
-                onComplete={(otp) => {
+                onComplete={() => {
                   toast({
                     title: 'OTP Verified',
                     description: 'Please create a new password',
