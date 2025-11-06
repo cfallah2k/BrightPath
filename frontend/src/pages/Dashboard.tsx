@@ -11,8 +11,7 @@ import {
   VStack,
   HStack,
   Badge,
-  Icon,
-  useColorModeValue
+  Icon
 } from '@chakra-ui/react'
 import { MdPerson, MdSchool, MdTrendingUp, MdWarning } from 'react-icons/md'
 import Card from '../components/common/Card'

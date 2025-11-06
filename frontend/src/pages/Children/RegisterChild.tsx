@@ -11,7 +11,6 @@ import {
   Checkbox,
   Textarea,
   SimpleGrid,
-  Text,
   Flex
 } from '@chakra-ui/react'
 import { useState } from 'react'

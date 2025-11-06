@@ -25,7 +25,6 @@ interface HeaderProps {
 export default function Header({ title, showBack, onBack }: HeaderProps) {
   const navigate = useNavigate()
   const { fieldWorker, logout } = useAuthStore()
-  const bg = useColorModeValue('white', 'gray.800')
   const borderColor = useColorModeValue('gray.200', 'gray.700')
 
   const handleLogout = () => {

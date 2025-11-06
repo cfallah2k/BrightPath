@@ -1,7 +1,7 @@
 import { ReactNode } from 'react'
 import { Navigate } from 'react-router-dom'
 import { useAuthStore } from '../../store/authStore'
-import { Box, Spinner, VStack, Text, Flex } from '@chakra-ui/react'
+import { Spinner, VStack, Text, Flex } from '@chakra-ui/react'
 
 interface ProtectedRouteProps {
   children: ReactNode

@@ -416,15 +416,9 @@ const generateAttendanceRecords = (): Attendance[] => {
         const dayOfWeek = date.getDay()
         if (dayOfWeek === 0 || dayOfWeek === 6) continue
         
-        // Calculate attendance rate based on enrollment status
-        let present = true
-        if (child.enrollment_status === 'at_risk' || child.enrollment_status === 'not_enrolled') {
-          present = Math.random() > 0.3 // 70% attendance for at-risk
-        } else if (child.enrollment_status === 'enrolled') {
-          present = Math.random() > 0.15 // 85% attendance for enrolled
-        } else {
-          present = false // Dropped out children don't attend
-        }
+        // Calculate attendance rate - we're already inside a block where status is 'enrolled'
+        // 85% attendance rate for enrolled children
+        const present = Math.random() > 0.15
         
         records.push({
           id: `attendance-${child.id}-${dateStr}`,
