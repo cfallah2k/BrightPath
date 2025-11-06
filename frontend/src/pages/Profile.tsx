@@ -9,10 +9,14 @@ import {
   Button,
   FormControl,
   Input,
-  useToast
+  useToast,
+  SimpleGrid,
+  Card,
+  Icon
 } from '@chakra-ui/react'
-import { MdEdit, MdPhone, MdEmail, MdLocationOn } from 'react-icons/md'
+import { MdEdit, MdPhone, MdEmail, MdLocationOn, MdInsights, MdLightbulb, MdChat, MdBarChart, MdSchool, MdPerson } from 'react-icons/md'
 import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import Card from '../components/common/Card'
 import Header from '../components/layout/Header'
 import MobileLayout from '../components/layout/MobileLayout'
@@ -20,6 +24,7 @@ import { useAuthStore } from '../store/authStore'
 
 export default function Profile() {
   const { fieldWorker } = useAuthStore()
+  const navigate = useNavigate()
   const [isEditing, setIsEditing] = useState(false)
   const toast = useToast()
 
@@ -104,6 +109,82 @@ export default function Profile() {
                   </Text>
                 </HStack>
               )}
+            </VStack>
+          </Card>
+
+          {/* Quick Access to AI Features */}
+          <Card p={5} bgGradient="linear(to-r, purple.50, teal.50)">
+            <VStack align="stretch" spacing={4}>
+              <Heading size="sm" color="purple.700">AI Features</Heading>
+              <SimpleGrid columns={2} spacing={3}>
+                <Card
+                  clickable
+                  onClick={() => navigate('/ai/insights')}
+                  p={3}
+                  bg="white"
+                >
+                  <VStack spacing={2}>
+                    <Icon as={MdInsights} boxSize={5} color="purple.500" />
+                    <Text fontSize="xs" fontWeight="semibold">AI Insights</Text>
+                  </VStack>
+                </Card>
+                <Card
+                  clickable
+                  onClick={() => navigate('/ai/recommendations')}
+                  p={3}
+                  bg="white"
+                >
+                  <VStack spacing={2}>
+                    <Icon as={MdLightbulb} boxSize={5} color="orange.500" />
+                    <Text fontSize="xs" fontWeight="semibold">Recommendations</Text>
+                  </VStack>
+                </Card>
+                <Card
+                  clickable
+                  onClick={() => navigate('/ai/chat')}
+                  p={3}
+                  bg="white"
+                >
+                  <VStack spacing={2}>
+                    <Icon as={MdChat} boxSize={5} color="teal.500" />
+                    <Text fontSize="xs" fontWeight="semibold">AI Assistant</Text>
+                  </VStack>
+                </Card>
+                <Card
+                  clickable
+                  onClick={() => navigate('/ai/reports')}
+                  p={3}
+                  bg="white"
+                >
+                  <VStack spacing={2}>
+                    <Icon as={MdBarChart} boxSize={5} color="blue.500" />
+                    <Text fontSize="xs" fontWeight="semibold">AI Reports</Text>
+                  </VStack>
+                </Card>
+              </SimpleGrid>
+            </VStack>
+          </Card>
+
+          {/* Quick Links */}
+          <Card>
+            <Heading size="sm" mb={4}>Quick Links</Heading>
+            <VStack spacing={2} align="stretch">
+              <Button
+                variant="ghost"
+                leftIcon={<MdSchool />}
+                justifyContent="flex-start"
+                onClick={() => navigate('/tutorial')}
+              >
+                Tutorials & Guides
+              </Button>
+              <Button
+                variant="ghost"
+                leftIcon={<MdPerson />}
+                justifyContent="flex-start"
+                onClick={() => navigate('/about')}
+              >
+                About BrightPath
+              </Button>
             </VStack>
           </Card>
 

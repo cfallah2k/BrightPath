@@ -17,7 +17,7 @@ import {
   Center
 } from '@chakra-ui/react'
 import { useParams, useNavigate } from 'react-router-dom'
-import { MdEdit, MdSchool, MdCalendarToday, MdLocationOn, MdPerson } from 'react-icons/md'
+import { MdEdit, MdSchool, MdCalendarToday, MdLocationOn, MdPerson, MdMap } from 'react-icons/md'
 import { useState, useEffect } from 'react'
 import { Spinner } from '@chakra-ui/react'
 import Card from '../../components/common/Card'
@@ -133,17 +133,35 @@ export default function ChildDetails() {
               <TabPanel px={0}>
                 <VStack spacing={4} align="stretch">
                   <Card>
-                    <Heading size="sm" mb={3}>Location</Heading>
-                    <VStack align="start" spacing={2}>
-                      <HStack>
-                        <MdLocationOn color="gray.600" />
-                        <Text fontSize="sm">
-                          {child.location.community}, {child.location.district}
-                        </Text>
+                    <VStack align="stretch" spacing={3}>
+                      <HStack justify="space-between">
+                        <Heading size="sm">Location</Heading>
+                        <Button
+                          size="xs"
+                          leftIcon={<MdMap />}
+                          colorScheme="teal"
+                          variant="outline"
+                          onClick={() => navigate(`/children/${id}/location`)}
+                        >
+                          Track Location
+                        </Button>
                       </HStack>
-                      <Text fontSize="sm" color="gray.600" pl={6}>
-                        {child.location.region} Region
-                      </Text>
+                      <VStack align="start" spacing={2}>
+                        <HStack>
+                          <MdLocationOn color="gray.600" />
+                          <Text fontSize="sm">
+                            {child.location.community}, {child.location.district}
+                          </Text>
+                        </HStack>
+                        <Text fontSize="sm" color="gray.600" pl={6}>
+                          {child.location.region} Region
+                        </Text>
+                        {child.location.coordinates && (
+                          <Text fontSize="xs" color="gray.500" pl={6}>
+                            {child.location.coordinates.lat.toFixed(6)}, {child.location.coordinates.lng.toFixed(6)}
+                          </Text>
+                        )}
+                      </VStack>
                     </VStack>
                   </Card>
 

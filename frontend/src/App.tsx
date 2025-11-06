@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 import { ChakraProvider, extendTheme } from '@chakra-ui/react'
 import ProtectedRoute from './components/common/ProtectedRoute'
+import PWAInstallPrompt from './components/common/PWAInstallPrompt'
 
 // Pages
 import Loader from './pages/Loader'
@@ -20,6 +21,16 @@ import Settings from './pages/Settings'
 import RecordAttendance from './pages/Attendance/RecordAttendance'
 import AttendanceHistory from './pages/Attendance/AttendanceHistory'
 import EditChild from './pages/Children/EditChild'
+import AIInsights from './pages/AI/Insights'
+import AIRecommendations from './pages/AI/Recommendations'
+import ChatAssistant from './pages/AI/ChatAssistant'
+import ReportGenerator from './pages/AI/ReportGenerator'
+import Tutorial from './pages/Tutorial/Tutorial'
+import About from './pages/About'
+import ForgotPassword from './pages/ForgotPassword'
+import OTPVerification from './pages/OTPVerification'
+import ChildLocationTracker from './pages/Children/ChildLocationTracker'
+import EditChildLocation from './pages/Children/EditChildLocation'
 
 // Custom theme for mobile-first design
 const theme = extendTheme({
@@ -98,6 +109,7 @@ const theme = extendTheme({
 function App() {
   return (
     <ChakraProvider theme={theme}>
+      <PWAInstallPrompt />
       <BrowserRouter>
         <Routes>
           {/* Initial Loader */}
@@ -109,6 +121,8 @@ function App() {
           {/* Public Auth Routes */}
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
+          <Route path="/forgot-password" element={<ForgotPassword />} />
+          <Route path="/otp-verification" element={<OTPVerification />} />
           
           {/* Protected Routes */}
           <Route
@@ -156,6 +170,22 @@ function App() {
             element={
               <ProtectedRoute>
                 <AttendanceHistory />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/children/:id/location"
+            element={
+              <ProtectedRoute>
+                <ChildLocationTracker />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/children/:id/location/edit"
+            element={
+              <ProtectedRoute>
+                <EditChildLocation />
               </ProtectedRoute>
             }
           />
@@ -220,6 +250,62 @@ function App() {
             element={
               <ProtectedRoute>
                 <RecordAttendance />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/ai/insights"
+            element={
+              <ProtectedRoute>
+                <AIInsights />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/ai/recommendations"
+            element={
+              <ProtectedRoute>
+                <AIRecommendations />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/ai/chat"
+            element={
+              <ProtectedRoute>
+                <ChatAssistant />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/ai/reports"
+            element={
+              <ProtectedRoute>
+                <ReportGenerator />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/tutorial"
+            element={
+              <ProtectedRoute>
+                <Tutorial />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/tutorial/:moduleId"
+            element={
+              <ProtectedRoute>
+                <Tutorial />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/about"
+            element={
+              <ProtectedRoute>
+                <About />
               </ProtectedRoute>
             }
           />

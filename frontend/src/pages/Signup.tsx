@@ -77,11 +77,25 @@ export default function Signup() {
       
       toast({
         title: 'Account created',
+        description: 'Please verify your account with the OTP sent to your email/phone',
         status: 'success',
         duration: 3000,
       })
       
-      navigate('/dashboard')
+      // Navigate to OTP verification
+      navigate('/otp-verification', {
+        state: {
+          purpose: 'signup',
+          contactInfo: formData.email,
+          onVerify: async (otp: string) => {
+            // Verify OTP with backend
+            await new Promise(resolve => setTimeout(resolve, 1000))
+            if (otp !== '123456') {
+              throw new Error('Invalid OTP')
+            }
+          }
+        }
+      })
     } catch (error: any) {
       toast({
         title: 'Signup failed',

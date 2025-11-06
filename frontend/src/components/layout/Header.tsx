@@ -15,6 +15,7 @@ import {
 import { MdNotifications, MdAccountCircle, MdLogout, MdSettings } from 'react-icons/md'
 import { useNavigate } from 'react-router-dom'
 import { useAuthStore } from '../../store/authStore'
+import NotificationBell from './NotificationBell'
 
 interface HeaderProps {
   title?: string
@@ -81,12 +82,7 @@ export default function Header({ title, showBack, onBack }: HeaderProps) {
         </Flex>
 
         <Flex align="center" gap={2}>
-          <IconButton
-            aria-label="Notifications"
-            icon={<MdNotifications />}
-            variant="ghost"
-            size="md"
-          />
+          <NotificationBell />
           
           <Menu>
             <MenuButton>
@@ -113,6 +109,12 @@ export default function Header({ title, showBack, onBack }: HeaderProps) {
               </MenuItem>
               <MenuItem icon={<MdSettings />} onClick={() => navigate('/settings')}>
                 Settings
+              </MenuItem>
+              <MenuItem icon={<MdAccountCircle />} onClick={() => navigate('/tutorial')}>
+                Tutorials
+              </MenuItem>
+              <MenuItem icon={<MdAccountCircle />} onClick={() => navigate('/about')}>
+                About
               </MenuItem>
               <MenuItem icon={<MdLogout />} onClick={handleLogout}>
                 Logout

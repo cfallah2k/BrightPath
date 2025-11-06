@@ -16,13 +16,24 @@ interface MobileLayoutProps {
 const navItems = [
   { path: '/dashboard', icon: MdHome, label: 'Home' },
   { path: '/children', icon: MdPerson, label: 'Children' },
-  { path: '/schools', icon: MdSchool, label: 'Schools' },
-  { path: '/assessments', icon: MdAssessment, label: 'Assessments' },
+  { path: '/ai/insights', icon: MdBarChart, label: 'AI Insights' },
   { path: '/reports', icon: MdBarChart, label: 'Reports' },
+  { path: '/profile', icon: MdPerson, label: 'Profile' },
 ]
 
 // Routes that should hide bottom nav
-const routesWithoutBottomNav = ['/loader', '/role-selector', '/login', '/signup', '/attendance/record', '/children/register', '/assessments/new', '/children/:id/edit']
+const routesWithoutBottomNav = [
+  '/loader', 
+  '/role-selector', 
+  '/login', 
+  '/signup', 
+  '/attendance/record', 
+  '/children/register', 
+  '/assessments/new', 
+  '/children/:id/edit',
+  '/ai/chat',
+  '/tutorial/:moduleId'
+]
 
 export default function MobileLayout({ children }: MobileLayoutProps) {
   const location = useLocation()

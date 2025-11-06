@@ -11,13 +11,23 @@ import {
   Checkbox,
   Textarea,
   SimpleGrid,
-  Flex
+  Flex,
+  Text,
+  Modal,
+  ModalOverlay,
+  ModalContent,
+  ModalHeader,
+  ModalBody,
+  ModalCloseButton,
+  useDisclosure
 } from '@chakra-ui/react'
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { MdLocationOn } from 'react-icons/md'
 import Card from '../../components/common/Card'
 import Header from '../../components/layout/Header'
 import MobileLayout from '../../components/layout/MobileLayout'
+import ChildLocationMap from '../../components/maps/ChildLocationMap'
 
 export default function RegisterChild() {
   const [formData, setFormData] = useState({
@@ -28,12 +38,14 @@ export default function RegisterChild() {
     region: '',
     district: '',
     community: '',
+    coordinates: null as { lat: number; lng: number } | null,
     disabilityStatus: false,
     disabilityDetails: '',
     householdPovertyIndicator: '',
     barriers: [] as string[],
   })
   const [isLoading, setIsLoading] = useState(false)
+  const { isOpen, onOpen, onClose } = useDisclosure()
   const navigate = useNavigate()
   const toast = useToast()
 
@@ -177,6 +189,28 @@ export default function RegisterChild() {
                 />
               </FormControl>
 
+              <FormControl>
+                <FormLabel>Exact Location (Optional)</FormLabel>
+                <Text fontSize="xs" color="gray.500" mb={2}>
+                  Click the button below to select exact GPS coordinates on map
+                </Text>
+                <Button
+                  type="button"
+                  leftIcon={<MdLocationOn />}
+                  variant="outline"
+                  colorScheme="teal"
+                  size="sm"
+                  onClick={onOpen}
+                >
+                  Select on Map
+                </Button>
+                {formData.coordinates && (
+                  <Text fontSize="xs" color="gray.600" mt={2}>
+                    Selected: {formData.coordinates.lat.toFixed(6)}, {formData.coordinates.lng.toFixed(6)}
+                  </Text>
+                )}
+              </FormControl>
+
               <Heading size="md" mt={4}>Additional Information</Heading>
 
               <FormControl>
@@ -251,6 +285,36 @@ export default function RegisterChild() {
             </VStack>
           </form>
         </Card>
+
+        {/* Location Picker Modal */}
+        <Modal isOpen={isOpen} onClose={onClose} size="full" isCentered>
+          <ModalOverlay bg="blackAlpha.600" backdropFilter="blur(4px)" />
+          <ModalContent mx={0} borderRadius="0" maxH="100vh">
+            <ModalHeader>
+              Select Child Location
+            </ModalHeader>
+            <ModalCloseButton />
+            <ModalBody pb={6}>
+              <ChildLocationMap
+                onLocationSelect={(location) => {
+                  setFormData({
+                    ...formData,
+                    coordinates: { lat: location.lat, lng: location.lng }
+                  })
+                  onClose()
+                  toast({
+                    title: 'Location Selected',
+                    description: `Coordinates: ${location.lat.toFixed(6)}, ${location.lng.toFixed(6)}`,
+                    status: 'success',
+                    duration: 3000,
+                  })
+                }}
+                mode="edit"
+                showSearch={true}
+              />
+            </ModalBody>
+          </ModalContent>
+        </Modal>
       </Box>
     </MobileLayout>
   )

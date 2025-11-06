@@ -13,7 +13,7 @@ import {
   Badge,
   Icon
 } from '@chakra-ui/react'
-import { MdPerson, MdSchool, MdTrendingUp, MdWarning } from 'react-icons/md'
+import { MdPerson, MdSchool, MdTrendingUp, MdWarning, MdInsights, MdLightbulb, MdChat } from 'react-icons/md'
 import Card from '../components/common/Card'
 import Header from '../components/layout/Header'
 import MobileLayout from '../components/layout/MobileLayout'
@@ -196,6 +196,60 @@ export default function Dashboard() {
                   </HStack>
                 </Box>
               ))}
+            </VStack>
+          </Card>
+
+          {/* AI Features Section */}
+          <Card p={5} bgGradient="linear(to-r, purple.50, teal.50)">
+            <VStack align="stretch" spacing={4}>
+              <HStack justify="space-between">
+                <Heading size="md">AI-Powered Features</Heading>
+                <Badge colorScheme="purple">NEW</Badge>
+              </HStack>
+              <SimpleGrid columns={{ base: 1, md: 3 }} spacing={3}>
+                <Card 
+                  clickable
+                  onClick={() => navigate('/ai/insights')}
+                  p={4}
+                  bg="white"
+                >
+                  <VStack align="start" spacing={2}>
+                    <Icon as={MdInsights} boxSize={6} color="purple.500" />
+                    <Heading size="sm">AI Insights</Heading>
+                    <Text fontSize="xs" color="gray.600">
+                      Predictive analytics and risk detection
+                    </Text>
+                  </VStack>
+                </Card>
+                <Card 
+                  clickable
+                  onClick={() => navigate('/ai/recommendations')}
+                  p={4}
+                  bg="white"
+                >
+                  <VStack align="start" spacing={2}>
+                    <Icon as={MdLightbulb} boxSize={6} color="orange.500" />
+                    <Heading size="sm">Recommendations</Heading>
+                    <Text fontSize="xs" color="gray.600">
+                      AI-suggested actions and interventions
+                    </Text>
+                  </VStack>
+                </Card>
+                <Card 
+                  clickable
+                  onClick={() => navigate('/ai/chat')}
+                  p={4}
+                  bg="white"
+                >
+                  <VStack align="start" spacing={2}>
+                    <Icon as={MdChat} boxSize={6} color="teal.500" />
+                    <Heading size="sm">AI Assistant</Heading>
+                    <Text fontSize="xs" color="gray.600">
+                      Get instant help and answers
+                    </Text>
+                  </VStack>
+                </Card>
+              </SimpleGrid>
             </VStack>
           </Card>
 

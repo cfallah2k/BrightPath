@@ -91,7 +91,27 @@ export default function Login() {
           duration: 3000,
         })
         
-        navigate('/dashboard')
+        // In production, redirect to OTP verification
+        // For demo, go directly to dashboard
+        const requiresOTP = false // Set to true to enable OTP verification
+        
+        if (requiresOTP) {
+          navigate('/otp-verification', {
+            state: {
+              purpose: 'login',
+              contactInfo: email,
+              onVerify: async (otp: string) => {
+                // Verify OTP with backend
+                await new Promise(resolve => setTimeout(resolve, 1000))
+                if (otp !== '123456') {
+                  throw new Error('Invalid OTP')
+                }
+              }
+            }
+          })
+        } else {
+          navigate('/dashboard')
+        }
       } else {
         throw new Error('Please fill in all fields')
       }
@@ -224,7 +244,7 @@ export default function Login() {
             </form>
 
             <Flex justify="space-between" fontSize="sm">
-              <Link color="teal.600" href="#">
+              <Link color="teal.600" onClick={() => navigate('/forgot-password')}>
                 Forgot password?
               </Link>
               <Text>
