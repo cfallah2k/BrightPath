@@ -12,7 +12,6 @@ import {
   Badge
 } from '@chakra-ui/react'
 import { MdPerson, MdSchool, MdAdminPanelSettings, MdSupervisorAccount } from 'react-icons/md'
-import RoleSelector from '../components/auth/RoleSelector'
 
 interface RoleOption {
   value: 'field_worker' | 'school_admin' | 'education_officer' | 'coordinator'
