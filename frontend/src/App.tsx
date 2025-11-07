@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 import { ChakraProvider, extendTheme } from '@chakra-ui/react'
 import ProtectedRoute from './components/common/ProtectedRoute'
 import PWAInstallPrompt from './components/common/PWAInstallPrompt'
+import ServiceWorkerUpdate from './components/common/ServiceWorkerUpdate'
 
 // Pages
 import Loader from './pages/Loader'
@@ -110,6 +111,7 @@ function App() {
   return (
     <ChakraProvider theme={theme}>
       <PWAInstallPrompt />
+      <ServiceWorkerUpdate />
       <BrowserRouter>
         <Routes>
           {/* Initial Loader */}
