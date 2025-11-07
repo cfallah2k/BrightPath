@@ -71,22 +71,23 @@ const getStepContent = (moduleId: string, stepId: string): StepContent => {
   
   // Getting Started Module
   contentMap['getting-started-step-1'] = {
-      overview: 'Welcome to BrightPath! This app helps you track out-of-school children, monitor their enrollment, attendance, and learning progress. BrightPath is designed to work offline, so you can use it even in areas with poor internet connectivity.',
-      instructions: [
-        'BrightPath is a mobile-first application that works on smartphones and tablets',
-        'The app automatically saves your work, so you can continue even if you lose connection',
-        'All data is securely stored and can be synced when you have internet',
-        'You can install the app on your device for quick access (PWA)',
-        'The app adapts to your role, showing relevant features and data'
-      ],
-      tips: [
-        'Bookmark the app on your home screen for quick access',
-        'Enable notifications to stay updated on important alerts',
-        'Use offline mode when working in remote areas'
-      ],
-      relatedFeatures: ['Dashboard', 'Profile', 'Settings']
-    },
-    'getting-started-step-2': {
+    overview: 'Welcome to BrightPath! This app helps you track out-of-school children, monitor their enrollment, attendance, and learning progress. BrightPath is designed to work offline, so you can use it even in areas with poor internet connectivity.',
+    instructions: [
+      'BrightPath is a mobile-first application that works on smartphones and tablets',
+      'The app automatically saves your work, so you can continue even if you lose connection',
+      'All data is securely stored and can be synced when you have internet',
+      'You can install the app on your device for quick access (PWA)',
+      'The app adapts to your role, showing relevant features and data'
+    ],
+    tips: [
+      'Bookmark the app on your home screen for quick access',
+      'Enable notifications to stay updated on important alerts',
+      'Use offline mode when working in remote areas'
+    ],
+    relatedFeatures: ['Dashboard', 'Profile', 'Settings']
+  }
+
+  contentMap['getting-started-step-2'] = {
       overview: 'Learn how to navigate through BrightPath efficiently. The app has a simple, intuitive interface designed for easy use on mobile devices.',
       instructions: [
         'Bottom Navigation (Mobile): Use the bottom bar to access main sections - Home, Children, AI Insights, Reports, and Profile',
@@ -101,8 +102,9 @@ const getStepContent = (moduleId: string, stepId: string): StepContent => {
         'The bottom navigation stays visible on most pages for quick access'
       ],
       relatedFeatures: ['Navigation', 'Search', 'Menu']
-    },
-    'getting-started-step-3': {
+  }
+
+  contentMap['getting-started-step-3'] = {
       overview: 'Your dashboard is personalized based on your role. It shows key statistics, quick actions, and important updates at a glance.',
       instructions: [
         'Statistics Cards: View total children, enrollment rates, and key metrics',
@@ -117,8 +119,9 @@ const getStepContent = (moduleId: string, stepId: string): StepContent => {
         'Customize your dashboard view in settings'
       ],
       relatedFeatures: ['Dashboard', 'Statistics', 'Quick Actions']
-    },
-    'child-management-step-4': {
+  }
+
+  contentMap['child-management-step-4'] = {
       overview: 'Registering children is one of the most important tasks. This guide will walk you through the complete registration process.',
       instructions: [
         'Navigate to Children → Register New Child',
@@ -134,8 +137,9 @@ const getStepContent = (moduleId: string, stepId: string): StepContent => {
         'You can save a draft and complete registration later if needed'
       ],
       relatedFeatures: ['Register Child', 'Location Map', 'Child Form']
-    },
-    'child-management-step-5': {
+  }
+
+  contentMap['child-management-step-5'] = {
       overview: 'Viewing child details gives you complete information about a child, including their enrollment status, attendance history, and assessments.',
       instructions: [
         'Go to Children list and tap on any child\'s name',
@@ -151,8 +155,9 @@ const getStepContent = (moduleId: string, stepId: string): StepContent => {
         'Use location tracking to verify addresses and plan visits'
       ],
       relatedFeatures: ['Child Details', 'Location Tracker', 'Attendance History']
-    },
-    'child-management-step-6': {
+  }
+
+  contentMap['child-management-step-6'] = {
       overview: 'Keeping child records up-to-date is crucial. Learn how to edit and update child information efficiently.',
       instructions: [
         'From child details page, click the "Edit" button',
@@ -168,8 +173,9 @@ const getStepContent = (moduleId: string, stepId: string): StepContent => {
         'Document all changes with notes when possible'
       ],
       relatedFeatures: ['Edit Child', 'Update Status', 'Location Update']
-    },
-    'attendance-step-7': {
+  }
+
+  contentMap['attendance-step-7'] = {
       overview: 'Recording daily attendance helps track which children are actively participating and identify those at risk.',
       instructions: [
         'Navigate to Attendance → Record Attendance',
@@ -186,8 +192,9 @@ const getStepContent = (moduleId: string, stepId: string): StepContent => {
         'Use batch attendance for multiple children at once'
       ],
       relatedFeatures: ['Record Attendance', 'Attendance History', 'Batch Attendance']
-    },
-    'attendance-step-8': {
+  }
+
+  contentMap['attendance-step-8'] = {
       overview: 'Batch attendance allows you to record attendance for multiple children at once, saving time during group activities.',
       instructions: [
         'Go to Attendance → Record Attendance',
@@ -203,8 +210,9 @@ const getStepContent = (moduleId: string, stepId: string): StepContent => {
         'You can still edit individual records after batch submission'
       ],
       relatedFeatures: ['Batch Attendance', 'Group Recording', 'Attendance Summary']
-    },
-    'attendance-step-9': {
+  }
+
+  contentMap['attendance-step-9'] = {
       overview: 'Attendance reports help you analyze patterns, identify trends, and spot children who need intervention.',
       instructions: [
         'Go to a child\'s detail page → Attendance tab',
@@ -220,8 +228,9 @@ const getStepContent = (moduleId: string, stepId: string): StepContent => {
         'Use attendance data to prioritize home visits'
       ],
       relatedFeatures: ['Attendance Reports', 'Attendance Calendar', 'Trends Analysis']
-    },
-    'assessments-step-10': {
+  }
+
+  contentMap['assessments-step-10'] = {
       overview: 'Learning assessments help track a child\'s educational progress. Create assessments to measure literacy and numeracy skills.',
       instructions: [
         'Navigate to Assessments → New Assessment',
@@ -239,8 +248,9 @@ const getStepContent = (moduleId: string, stepId: string): StepContent => {
         'Be consistent with assessment methods for accurate tracking'
       ],
       relatedFeatures: ['New Assessment', 'Assessment Types', 'Progress Tracking']
-    },
-    'assessments-step-11': {
+  }
+
+  contentMap['assessments-step-11'] = {
       overview: 'Understanding different assessment types helps you choose the right assessment for each situation.',
       instructions: [
         'Baseline Assessment: First assessment when child is registered - establishes starting point',
@@ -255,8 +265,9 @@ const getStepContent = (moduleId: string, stepId: string): StepContent => {
         'Focus on specific skills (literacy/numeracy) when needed'
       ],
       relatedFeatures: ['Assessment Types', 'Baseline', 'Quarterly']
-    },
-    'assessments-step-12': {
+  }
+
+  contentMap['assessments-step-12'] = {
       overview: 'Tracking progress over time shows how children are improving and helps identify those who need additional support.',
       instructions: [
         'Go to child details → Assessments tab',
@@ -272,8 +283,9 @@ const getStepContent = (moduleId: string, stepId: string): StepContent => {
         'Intervene early if progress is declining'
       ],
       relatedFeatures: ['Progress Charts', 'Assessment History', 'Trend Analysis']
-    },
-    'ai-features-step-13': {
+  }
+
+  contentMap['ai-features-step-13'] = {
       overview: 'AI Insights use machine learning to analyze data and identify patterns, risks, and opportunities.',
       instructions: [
         'Navigate to AI Insights from the dashboard or main menu',
@@ -289,8 +301,9 @@ const getStepContent = (moduleId: string, stepId: string): StepContent => {
         'Use insights to prioritize your work'
       ],
       relatedFeatures: ['AI Insights', 'Risk Detection', 'Predictive Analytics']
-    },
-    'ai-features-step-14': {
+  }
+
+  contentMap['ai-features-step-14'] = {
       overview: 'AI Recommendations provide specific, actionable steps to help children succeed.',
       instructions: [
         'Go to AI Recommendations page',
@@ -307,8 +320,9 @@ const getStepContent = (moduleId: string, stepId: string): StepContent => {
         'Track your progress on accepted recommendations'
       ],
       relatedFeatures: ['AI Recommendations', 'Action Items', 'Priority Filtering']
-    },
-    'ai-features-step-15': {
+  }
+
+  contentMap['ai-features-step-15'] = {
       overview: 'Smart Alerts notify you about important events, risks, and opportunities in real-time.',
       instructions: [
         'Alerts appear in the notification bell icon in the header',
@@ -324,8 +338,9 @@ const getStepContent = (moduleId: string, stepId: string): StepContent => {
         'Act on urgent alerts immediately'
       ],
       relatedFeatures: ['Smart Alerts', 'Notifications', 'Alert Settings']
-    },
-    'reports-step-16': {
+  }
+
+  contentMap['reports-step-16'] = {
       overview: 'Reports provide comprehensive data analysis to help you understand trends and make informed decisions.',
       instructions: [
         'Navigate to Reports from the main menu',
@@ -341,42 +356,98 @@ const getStepContent = (moduleId: string, stepId: string): StepContent => {
         'Use disaggregated data to identify gaps'
       ],
       relatedFeatures: ['Reports', 'Analytics', 'Data Visualization']
-    },
-    'reports-step-17': {
-      overview: 'Exporting data allows you to share information, create backups, and integrate with other systems.',
-      instructions: [
-        'Go to Reports page',
-        'Click the "Export" button in the Disaggregated Data section',
-        'Data will be downloaded as a CSV file',
-        'The file includes all statistics and disaggregated data',
-        'Open the CSV in Excel or Google Sheets for further analysis',
-        'Share exported data with supervisors or stakeholders'
-      ],
-      tips: [
-        'Export data regularly for backup',
-        'Use exported data for presentations and reports',
-        'Keep exported files organized by date'
-      ],
-      relatedFeatures: ['Export Data', 'CSV Download', 'Data Sharing']
-    },
-    'reports-step-18': {
-      overview: 'The Analytics Dashboard provides visual insights into your data, making it easy to understand trends and patterns.',
-      instructions: [
-        'Access the Analytics Dashboard from Reports',
-        'View enrollment statistics with visual charts',
-        'Analyze retention rates and trends',
-        'Check disaggregated data breakdowns',
-        'Filter by region to see location-specific analytics',
-        'Compare metrics across different time periods',
-        'Use insights to inform decision-making'
-      ],
-      tips: [
-        'Regularly review analytics to identify trends',
-        'Use visual charts to communicate findings',
-        'Share analytics with team members for collaboration'
-      ],
-      relatedFeatures: ['Analytics Dashboard', 'Data Visualization', 'Trend Analysis']
-    }
+  }
+
+  contentMap['reports-step-17'] = {
+    overview: 'Exporting data allows you to share information, create backups, and integrate with other systems.',
+    instructions: [
+      'Go to Reports page',
+      'Click the "Export" button in the Disaggregated Data section',
+      'Data will be downloaded as a CSV file',
+      'The file includes all statistics and disaggregated data',
+      'Open the CSV in Excel or Google Sheets for further analysis',
+      'Share exported data with supervisors or stakeholders'
+    ],
+    tips: [
+      'Export data regularly for backup',
+      'Use exported data for presentations and reports',
+      'Keep exported files organized by date'
+    ],
+    relatedFeatures: ['Export Data', 'CSV Download', 'Data Sharing']
+  }
+
+  contentMap['reports-step-18'] = {
+    overview: 'The Analytics Dashboard provides visual insights into your data, making it easy to understand trends and patterns.',
+    instructions: [
+      'Access the Analytics Dashboard from Reports',
+      'View enrollment statistics with visual charts',
+      'Analyze retention rates and trends',
+      'Check disaggregated data breakdowns',
+      'Filter by region to see location-specific analytics',
+      'Compare metrics across different time periods',
+      'Use insights to inform decision-making'
+    ],
+    tips: [
+      'Regularly review analytics to identify trends',
+      'Use visual charts to communicate findings',
+      'Share analytics with team members for collaboration'
+    ],
+    relatedFeatures: ['Analytics Dashboard', 'Data Visualization', 'Trend Analysis']
+  }
+
+  // Add location tracking content
+  contentMap['location-tracking-step-19'] = {
+    overview: 'View child locations on an interactive Google Map to verify addresses and plan visits.',
+    instructions: [
+      'Go to child details page and click "Track Location" button',
+      'View the child\'s current location on the map',
+      'Use map controls to zoom in/out and pan around',
+      'Click "Use My Location" to center the map on your current position',
+      'Use search to find specific addresses',
+      'Click "Open in Maps" to view in Google Maps app'
+    ],
+    tips: [
+      'Use location tracking to verify addresses before home visits',
+      'Save locations for easy navigation',
+      'Share locations with team members when needed'
+    ],
+    relatedFeatures: ['Location Map', 'GPS Tracking', 'Address Verification']
+  }
+
+  contentMap['location-tracking-step-20'] = {
+    overview: 'Update child locations when families move or to correct inaccurate addresses.',
+    instructions: [
+      'From location tracker, click "Update Location"',
+      'Click on the map to set new coordinates, or drag the marker',
+      'Use search to find and select an address',
+      'Click "Use My Location" to use your current GPS position',
+      'Review the selected address',
+      'Click "Save Location" to update the child\'s location'
+    ],
+    tips: [
+      'Always verify new locations before saving',
+      'Update locations immediately when families move',
+      'Use GPS coordinates for accurate tracking'
+    ],
+    relatedFeatures: ['Edit Location', 'Map Selection', 'GPS Coordinates']
+  }
+
+  contentMap['location-tracking-step-21'] = {
+    overview: 'Location history shows all recorded locations for a child, helping track movements and verify addresses.',
+    instructions: [
+      'View location history in the Location Tracker page',
+      'See all previous location records with dates and timestamps',
+      'Check who recorded each location and the purpose',
+      'View location coordinates and addresses',
+      'Use history to track family movements',
+      'Export location data if needed'
+    ],
+    tips: [
+      'Regular location updates help maintain accurate records',
+      'Document the purpose of each location update',
+      'Use location history to identify patterns'
+    ],
+    relatedFeatures: ['Location History', 'Tracking Records', 'Movement Patterns']
   }
 
   return contentMap[`${moduleId}-${stepId}`] || {
