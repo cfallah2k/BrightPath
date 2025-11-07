@@ -21,6 +21,7 @@ import {
   AlertTitle
 } from '@chakra-ui/react'
 import { MdTrendingUp, MdWarning, MdInsights, MdLightbulb, MdBarChart, MdPeople } from 'react-icons/md'
+import { useNavigate } from 'react-router-dom'
 import Header from '../../components/layout/Header'
 import MobileLayout from '../../components/layout/MobileLayout'
 
@@ -36,6 +37,7 @@ interface AIInsight {
 }
 
 export default function AIInsights() {
+  const navigate = useNavigate()
   const [insights, setInsights] = useState<AIInsight[]>([])
   const [isLoading, setIsLoading] = useState(true)
   const [stats, setStats] = useState({
@@ -262,7 +264,12 @@ export default function AIInsights() {
                         <Text fontSize="xs" color="gray.500">
                           AI Confidence: {insight.confidence}%
                         </Text>
-                        <Button size="sm" colorScheme="teal" variant="outline">
+                        <Button 
+                          size="sm" 
+                          colorScheme="teal" 
+                          variant="outline"
+                          onClick={() => navigate('/ai/recommendations')}
+                        >
                           Take Action
                         </Button>
                       </HStack>

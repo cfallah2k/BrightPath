@@ -17,6 +17,7 @@ import {
   Divider
 } from '@chakra-ui/react'
 import { MdLightbulb, MdCheckCircle, MdSchedule, MdPerson, MdSchool } from 'react-icons/md'
+import { useNavigate } from 'react-router-dom'
 import Header from '../../components/layout/Header'
 import MobileLayout from '../../components/layout/MobileLayout'
 
@@ -36,6 +37,7 @@ interface Recommendation {
 }
 
 export default function AIRecommendations() {
+  const navigate = useNavigate()
   const [recommendations, setRecommendations] = useState<Recommendation[]>([])
   const [filter, setFilter] = useState<'all' | 'urgent' | 'high' | 'medium' | 'low'>('all')
   const [isLoading, setIsLoading] = useState(true)
@@ -306,7 +308,18 @@ export default function AIRecommendations() {
                             >
                               Mark Complete
                             </Button>
-                            <Button size="sm" variant="outline" flex={1}>
+                            <Button 
+                              size="sm" 
+                              variant="outline" 
+                              flex={1}
+                              onClick={() => {
+                                if (rec.childId) {
+                                  navigate(`/children/${rec.childId}`)
+                                } else {
+                                  navigate('/ai/recommendations')
+                                }
+                              }}
+                            >
                               View Details
                             </Button>
                           </>

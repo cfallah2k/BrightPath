@@ -7,7 +7,8 @@ import {
   Select,
   HStack,
   Button,
-  Spinner
+  Spinner,
+  useToast
 } from '@chakra-ui/react'
 import { MdDownload } from 'react-icons/md'
 import { useState, useEffect } from 'react'
@@ -18,9 +19,11 @@ import { testDataService } from '../../services/testDataService'
 import { testChildren } from '../../data/testData'
 
 export default function Reports() {
+  const toast = useToast()
   const [stats, setStats] = useState<any>(null)
   const [isLoading, setIsLoading] = useState(true)
   const [regionFilter, setRegionFilter] = useState('all')
+
 
   useEffect(() => {
     const loadStats = async () => {
@@ -74,6 +77,58 @@ export default function Reports() {
   }
 
   const disaggregated = stats ? calculateDisaggregated() : null
+
+  const handleExport = () => {
+    if (!stats || !disaggregated) {
+      toast({
+        title: 'No Data',
+        description: 'Please wait for data to load',
+        status: 'warning',
+        duration: 3000,
+      })
+      return
+    }
+
+    // Create CSV data
+    const csvData = [
+      ['Metric', 'Value'],
+      ['Total Children', stats?.total || 0],
+      ['Enrolled', stats?.enrolled || 0],
+      ['Not Enrolled', stats?.notEnrolled || 0],
+      ['At Risk', stats?.atRisk || 0],
+      ['Enrollment Rate', `${stats?.enrollmentRate || 0}%`],
+      ['Retention Rate', `${stats?.retentionRate || 0}%`],
+      ['', ''],
+      ['Disaggregated Data', ''],
+      ['Male', `${disaggregated?.male || 0}%`],
+      ['Female', `${disaggregated?.female || 0}%`],
+      ['With Disability', `${disaggregated?.withDisability || 0}%`],
+      ['Without Disability', `${disaggregated?.withoutDisability || 0}%`],
+      ['Urban', `${disaggregated?.urban || 0}%`],
+      ['Rural', `${disaggregated?.rural || 0}%`],
+      ['Poorest', `${disaggregated?.poorest || 0}%`],
+      ['Richest', `${disaggregated?.richest || 0}%`],
+    ]
+
+    const csvContent = csvData.map(row => row.join(',')).join('\n')
+    const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' })
+    const link = document.createElement('a')
+    const url = URL.createObjectURL(blob)
+    link.setAttribute('href', url)
+    link.setAttribute('download', `brightpath-report-${new Date().toISOString().split('T')[0]}.csv`)
+    link.style.visibility = 'hidden'
+    document.body.appendChild(link)
+    link.click()
+    document.body.removeChild(link)
+
+    toast({
+      title: 'Export Successful',
+      description: 'Report data has been downloaded as CSV',
+      status: 'success',
+      duration: 3000,
+    })
+  }
+
   return (
     <MobileLayout>
       <Header title="Reports & Analytics" />
@@ -171,6 +226,7 @@ export default function Reports() {
                     leftIcon={<MdDownload />}
                     size="sm"
                     variant="outline"
+                    onClick={handleExport}
                   >
                     Export
                   </Button>

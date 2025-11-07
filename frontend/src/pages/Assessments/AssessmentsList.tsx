@@ -76,7 +76,11 @@ export default function AssessmentsList() {
               {assessments.map((assessment) => {
                 const child = getChildById(assessment.child_id)
                 return (
-                  <Card key={assessment.id} clickable>
+                  <Card 
+                    key={assessment.id} 
+                    clickable
+                    onClick={() => navigate(`/assessments/${assessment.id}`)}
+                  >
                     <HStack justify="space-between">
                       <VStack align="start" spacing={1}>
                         <Text fontWeight="semibold">

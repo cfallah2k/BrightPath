@@ -27,6 +27,65 @@ export default function Settings() {
     autoSync: true,
   })
 
+  const handleExportData = () => {
+    // Export all data to JSON
+    const exportData = {
+      settings: settings,
+      timestamp: new Date().toISOString(),
+      version: '1.0.0'
+    }
+
+    const dataStr = JSON.stringify(exportData, null, 2)
+    const blob = new Blob([dataStr], { type: 'application/json' })
+    const link = document.createElement('a')
+    const url = URL.createObjectURL(blob)
+    link.setAttribute('href', url)
+    link.setAttribute('download', `brightpath-data-${new Date().toISOString().split('T')[0]}.json`)
+    link.style.visibility = 'hidden'
+    document.body.appendChild(link)
+    link.click()
+    document.body.removeChild(link)
+
+    toast({
+      title: 'Data Exported',
+      description: 'Your data has been downloaded',
+      status: 'success',
+      duration: 3000,
+    })
+  }
+
+  const handleClearCache = () => {
+    if (window.confirm('Are you sure you want to clear all cached data? This will not delete your account.')) {
+      // Clear localStorage (except settings)
+      const currentSettings = localStorage.getItem('brightpath_settings')
+      localStorage.clear()
+      if (currentSettings) {
+        localStorage.setItem('brightpath_settings', currentSettings)
+      }
+
+      // Clear service worker cache
+      if ('serviceWorker' in navigator && 'caches' in window) {
+        caches.keys().then((cacheNames) => {
+          cacheNames.forEach((cacheName) => {
+            caches.delete(cacheName)
+          })
+        })
+      }
+
+      toast({
+        title: 'Cache Cleared',
+        description: 'All cached data has been cleared. The app will reload.',
+        status: 'success',
+        duration: 3000,
+      })
+
+      // Reload after a short delay
+      setTimeout(() => {
+        window.location.reload()
+      }, 1000)
+    }
+  }
+
   const handleSave = () => {
     // TODO: Save settings to localStorage or backend
     localStorage.setItem('brightpath_settings', JSON.stringify(settings))
@@ -126,10 +185,21 @@ export default function Settings() {
           <Card>
             <Heading size="sm" mb={4}>Data Management</Heading>
             <VStack spacing={3} align="stretch">
-              <Button variant="outline" size="sm" w="full">
+              <Button 
+                variant="outline" 
+                size="sm" 
+                w="full"
+                onClick={handleExportData}
+              >
                 Export Data
               </Button>
-              <Button variant="outline" colorScheme="red" size="sm" w="full">
+              <Button 
+                variant="outline" 
+                colorScheme="red" 
+                size="sm" 
+                w="full"
+                onClick={handleClearCache}
+              >
                 Clear Cache
               </Button>
             </VStack>

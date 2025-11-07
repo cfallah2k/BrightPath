@@ -88,6 +88,10 @@ export default function SchoolsList() {
               aria-label="Add school"
               icon={<MdAdd />}
               colorScheme="teal"
+              onClick={() => {
+                // For now, show a toast. In production, navigate to add school page
+                alert('Add School feature coming soon! This will allow you to register new schools in the system.')
+              }}
             />
           </Flex>
 
