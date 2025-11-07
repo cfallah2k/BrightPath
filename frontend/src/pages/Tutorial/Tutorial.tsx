@@ -700,69 +700,6 @@ export default function Tutorial() {
     }
   ]
 
-  // Add location tracking content to the map
-  contentMap['location-tracking-step-19'] = {
-    overview: 'View child locations on an interactive Google Map to verify addresses and plan visits.',
-    instructions: [
-      'Go to child details page and click "Track Location" button',
-      'View the child\'s current location on the map',
-      'Use map controls to zoom in/out and pan around',
-      'Click "Use My Location" to center the map on your current position',
-      'Use search to find specific addresses',
-      'Click "Open in Maps" to view in Google Maps app'
-    ],
-    tips: [
-      'Use location tracking to verify addresses before home visits',
-      'Save locations for easy navigation',
-      'Share locations with team members when needed'
-    ],
-    relatedFeatures: ['Location Map', 'GPS Tracking', 'Address Verification']
-  }
-
-  contentMap['location-tracking-step-20'] = {
-    overview: 'Update child locations when families move or to correct inaccurate addresses.',
-    instructions: [
-      'From location tracker, click "Update Location"',
-      'Click on the map to set new coordinates, or drag the marker',
-      'Use search to find and select an address',
-      'Click "Use My Location" to use your current GPS position',
-      'Review the selected address',
-      'Click "Save Location" to update the child\'s location'
-    ],
-    tips: [
-      'Always verify new locations before saving',
-      'Update locations immediately when families move',
-      'Use GPS coordinates for accurate tracking'
-    ],
-    relatedFeatures: ['Edit Location', 'Map Selection', 'GPS Coordinates']
-  }
-
-  contentMap['location-tracking-step-21'] = {
-    overview: 'Location history shows all recorded locations for a child, helping track movements and verify addresses.',
-    instructions: [
-      'View location history in the Location Tracker page',
-      'See all previous location records with dates and timestamps',
-      'Check who recorded each location and the purpose',
-      'View location coordinates and addresses',
-      'Use history to track family movements',
-      'Export location data if needed'
-    ],
-    tips: [
-      'Regular location updates help maintain accurate records',
-      'Document the purpose of each location update',
-      'Use location history to identify patterns'
-    ],
-    relatedFeatures: ['Location History', 'Tracking Records', 'Movement Patterns']
-  }
-
-  return contentMap[`${moduleId}-${stepId}`] || {
-    overview: 'Content coming soon...',
-    instructions: ['This tutorial step is being developed'],
-    tips: [],
-    relatedFeatures: []
-  }
-}
-
   const totalSteps = modules.reduce((sum, module) => sum + module.steps.length, 0)
   const completedSteps = modules.reduce(
     (sum, module) => sum + module.steps.filter(s => s.completed).length,
