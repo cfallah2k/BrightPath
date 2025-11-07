@@ -18,8 +18,6 @@ import {
   ListIcon,
   Alert,
   AlertIcon,
-  Image,
-  Flex,
   useToast
 } from '@chakra-ui/react'
 import { 
@@ -33,8 +31,6 @@ import {
   MdArrowBack,
   MdLocationOn,
   MdBarChart,
-  MdInsights,
-  MdChat,
   MdMap
 } from 'react-icons/md'
 import Header from '../../components/layout/Header'
