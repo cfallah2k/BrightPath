@@ -236,10 +236,16 @@ export default function About() {
                 </HStack>
               </VStack>
               <Divider />
+              <Text fontSize="xs" color="gray.500" fontStyle="italic">
+                This solution was designed and built for Ghana's out-of-school children tracking needs, 
+                but was developed and built in Liberia by Annita LLC. The solution is fully adaptable 
+                to Ghana's specific requirements, regions, and data structures.
+              </Text>
+              <Divider />
               <Text fontSize="xs" color="gray.500">
                 © {new Date().getFullYear()} BrightPath. All rights reserved.
                 <br />
-                Built with ❤️ in Liberia for the children of Liberia
+                Built with ❤️ in Liberia for the children of Ghana
               </Text>
             </VStack>
           </Card>
